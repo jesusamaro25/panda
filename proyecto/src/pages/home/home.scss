@@ -1,0 +1,58 @@
+page-home {
+
+   
+
+    ion-title * {
+
+        margin-top: 3vh;
+        margin-bottom: 1vh;
+    }
+
+    video {
+
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        transform: translateX(-50%) translateY(-50%);
+
+    }
+
+    .ini {
+
+        background-color: transparent;
+
+    }
+
+    .ini ::placeholder {
+
+        color: white;
+        
+    }    
+
+    #regl1{
+
+        color: white;
+
+    }
+
+    #regl2{
+
+        color: white;
+        text-decoration: underline;
+
+    }
+
+    .title{
+        color:white;
+        font-size: 50px;
+       // font-weight: bold;
+        text-align: center;
+        font-family: Helvetica;
+    }
+
+}
