@@ -10,6 +10,7 @@ import { RegistroPage } from '../pages/registro/registro';
 import { ProfilePage } from '../pages/profile/profile';
 import { Camera } from '@ionic-native/camera';
 import { Dialogs } from '@ionic-native/dialogs';
+import { ComponentsModule } from '../components/components.module'; //necesario para que funcione el decorador componente
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { Dialogs } from '@ionic-native/dialogs';
   ],
   imports: [
     BrowserModule,
+    ComponentsModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

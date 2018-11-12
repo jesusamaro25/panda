@@ -21,7 +21,7 @@
 <!--**************************************Inicio del Content *****************************************************-->
 <ion-content>
   
-    <form *ngIf="form" [formGroup]="form" (ngSubmit)="saveProfile()"> <!-- CONSULTAR Inicio Form que aparentemente es necesario cuando quiera gurdar los cambios en el perfil.-->
+    <form *ngIf="form" [formGroup]="form"> <!-- CONSULTAR Inicio Form que aparentemente es necesario cuando quiera gurdar los cambios en el perfil.-->
       <div class="upperDiv"> <!--Inicio Div de información de usuario-->
         <input type="file" #fileInput style="visibility: hidden; height: 0px" name="files[]"
                (change)="processWebImage($event)"/>
@@ -96,7 +96,7 @@
               <ion-col col-8>
                 <ion-row>
                   <ion-col col-4 >
-                    <button ion-button icon-only clear>
+                    <button ion-button icon-only clear (click)="toastPrueba()">
                       <div>
                         <ion-icon  name="bicycle"   ></ion-icon>
                       </div> 
@@ -120,24 +120,13 @@
 
 
 <!--**************************************Inicio del Footer *****************************************************-->
-  
-<!--¿El Footer debería ser un componente reutilizable?-->
-  <ion-footer>
-    <ion-toolbar>
-      <ion-buttons center>
-        <button ion-button icon-only (click)="mensaje()" >  
-          <ion-icon name="home" style="color:white"></ion-icon>
-        </button>
-        <button ion-button icon-only (click)="mensaje()" >  
-          <ion-icon name="search" style="color:white"></ion-icon>
-        </button>
-        <button ion-button icon-only (click)="mensaje()" >  
-          <ion-icon name="md-paper-plane" style="color:white"></ion-icon>
-        </button>
-      </ion-buttons> 
-    </ion-toolbar>
-  </ion-footer>
-
+  <footer>  
+  </footer>
+  <!-- Acá usamos el selector del componente footer, debemos revisar:
+  1. footer.ts y ver su selector para aplicarlo acá
+  2. footer.html y copiar el contenido que queremos plasmar en el <footer>
+  3. components.modules.ts e importar IonicModule y el componente Footer
+  4. app.module.ts e importar el ComponentsModule -->
   <!--**************************************Inicio del Footer *****************************************************-->
 
 

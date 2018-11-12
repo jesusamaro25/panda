@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, ViewController, ToastController, LoadingController} from 'ionic-angular';
+import {IonicPage, NavController, ViewController, ToastController, LoadingController, ToastOptions} from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { ModalController} from 'ionic-angular';
 import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm install --save @ionic-native/camera
@@ -22,6 +22,8 @@ export class ProfilePage {
   //publicacionPage = PublicacionPage;
   private isDisabled: boolean = true;
   private caption_name: string = "EDIT";
+  //-------------------PRUEBA VARIABLE
+  toastOptions: ToastOptions; 
   
   
   account: {
@@ -42,11 +44,15 @@ export class ProfilePage {
               public toastCtrl: ToastController, public loadingCtrl: LoadingController,public modalCtrl: ModalController, private dialogs: Dialogs)
               
               {
-
+//PRUEBA METODO TOAST
+this.toastOptions={
+  message: 'Surprisen b',
+  duration: 3000,
+}
     this.form = formBuilder.group({
       image: [''], user_name: [''], user_password: [''], user_email: [''], user_state: [''],
     });
-
+    this.toastPrueba();
 
     
     //Aqui se guardan los objetos json dentro del arreglo profile Details
@@ -118,6 +124,9 @@ export class ProfilePage {
   getProfileImageStyle() {
     return 'url(' + this.form.controls['image'].value + ')'
   }
-
-
+ //PRUEBA TOAST
+ toastPrueba(){
+this.toastCtrl.create(this.toastOptions).present();
+ }
+ 
 }
