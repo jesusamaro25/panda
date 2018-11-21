@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { TimelinePage } from '../pages/timeline/timeline';
 import { RegistroPage } from '../pages/registro/registro';
 import { ProfilePage } from '../pages/profile/profile';
 import { Camera } from '@ionic-native/camera';
@@ -17,7 +18,8 @@ import { ComponentsModule } from '../components/components.module'; //necesario 
     MyApp,
     HomePage,
     RegistroPage,
-    ProfilePage
+    ProfilePage,
+    TimelinePage
     
   ],
   imports: [
@@ -30,7 +32,8 @@ import { ComponentsModule } from '../components/components.module'; //necesario 
     MyApp,
     HomePage,
     RegistroPage,
-    ProfilePage
+    ProfilePage,
+    TimelinePage 
   ],
   providers: [
     StatusBar,
