@@ -56,7 +56,7 @@ this.toastOptions={
     this.form = formBuilder.group({
       image: [''], user_name: [''], user_password: [''], user_email: [''], user_state: [''],
     });
-    this.toastPrueba();
+    //this.toastPrueba();  Aqui es el toast de bienvenido que se sustituyó por el sweet alert
 
     
     //Aqui se guardan los objetos json dentro del arreglo profile Details
@@ -101,6 +101,13 @@ this.toastOptions={
   .then(() => console.log('Dialog dismissed'))
   .catch(e => console.log('Error displaying dialog', e));    
  }
+
+ enviarSolicitudAventon()
+ {
+ 	swal("Aventón solicitado","Tu solicitud de aventón ha sido enviada, mantente atento a tus notificaciones","success");
+ }
+
+
 
  
 
