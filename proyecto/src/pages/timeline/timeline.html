@@ -18,24 +18,23 @@
 
 <ion-content>
   
-    <form *ngIf="form" [formGroup]="form"> <!-- CONSULTAR Inicio Form que aparentemente es necesario cuando quiera gurdar los cambios en el perfil.-->
+    <form> <!-- <form *ngIf="form" [formGroup]="form"> CONSULTAR Inicio Form que aparentemente es necesario cuando quiera gurdar los cambios en el perfil.-->
       
 
-      <ion-card *ngFor="let pbl of profileDetails index as i"> <!--Inicio publicaciones-->
+      <ion-card *ngFor="let post of postDetails index as i"> <!--Inicio publicaciones-->
         <ion-grid>
           
           <ion-row> <!--Inicio fila del card para la foto de perfi y el contenido del post-->
             <ion-col col-4>
               <div class="profile-imagecard-wrapper"> <!--Inicio Div que contiene los div asociados a la imagen de perfil para efectos del SCSS-->
-                <div class="profile-imagecard-placeholder" *ngIf="!this.form.controls.image.value"></div>
-                <div class="profile-imagecard" [style.backgroundImage]="getProfileImageStyle()"
-                       *ngIf="this.form.controls.image.value"></div>
+                <div (click)="visitarPerfil()" class="profile-imagecard-placeholder" [ngStyle]="{'background-image': 'url(' + post.pic + ')'}"></div>
+                
               </div> <!--Fin Div que contiene los div asociados a la imagen de perfil para efectos del SCSS-->
             </ion-col>
             <ion-col col-8>
               <ion-card-content> <!--Inicio card-content. Indicamos ion-card-contenr para que el contenido se ajuste a la card-->
-                <h2>{{profileDetails[i].full_name}}</h2>
-                <P class="ion-card-content">{{profileDetails[i].post}}</P>
+                <h2>{{postDetails[i].full_name}}</h2>
+                <P class="ion-card-content">{{post.post}}</P>  
               </ion-card-content> <!--Fin  card-content.-->
             </ion-col>
           </ion-row> <!--Inicio fila del card para la foto de perfi y el contenido del post-->
