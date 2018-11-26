@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { RegistroPage } from '../registro/registro';
-import { ProfilePage } from '../profile/profile';
+import { TimelinePage } from '../timeline/timeline';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -19,7 +19,7 @@ export class HomePage {
 
   login(){
 
-    this.navCtrl.push(ProfilePage);
+    this.navCtrl.push(TimelinePage);
     console.log("Email :"+this.email)
     console.log("Contrasena :"+this.contrasena);
 
