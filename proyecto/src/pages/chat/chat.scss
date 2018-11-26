@@ -1,0 +1,64 @@
+page-chat {
+    .mensajeStyle{
+    width:100%;
+    background-color: #536879;
+    color: white;
+    }
+    .respuestaStyle{
+        width:90%;
+        background-color: #9dd3ff;
+        color: white;
+        }
+        .searchbar-md .searchbar-input{
+            border-radius: 23px !important;
+          }
+          img{
+            border-radius: 50% !important;
+            overflow: hidden !important;
+            width: 45px !important;
+            height: 45px !important;
+          }
+        
+          .cssForRoundSLidingItems .button-inner{
+            background-color: #ffffff21;
+            border-radius: 50%;
+            height: 45px;
+            width: 45px;
+            color: white;
+            font-size: 11px
+          }
+         .cssForRoundSLidingItems button{
+            background-color: black;
+           margin-left: -1px!important;
+          }
+        
+          .cssForRoundSLidingItems,.cssForRoundSLidingItems ion-item{
+            height: 75px !important;
+          }
+          .cssForRoundSLidingItems  ion-icon:not(.nextDiff){
+            margin-top: 10px !important;
+            font-size: 2.1em !important;
+          }
+         
+          .nextDiff{
+            color:  map_get($colors,theme_color);
+          }
+        
+          ion-item-options[side=left] ion-icon {
+            color: red;
+          }
+        
+          .login{
+            color:  map_get($colors,theme_color) !important;
+          }
+        
+          .toolbar-background {
+            background-color:#374550  !important;
+          }
+          .centrado{
+            position: fixed; top: 11.5%;
+            left: 33%;
+            max-width:650px;
+            margin:auto;
+          }
+}

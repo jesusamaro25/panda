@@ -47,7 +47,7 @@ export class ProfilePage {
 //PRUEBA METODO TOAST
 this.toastOptions={
   message: 'Surprisen b',
-  duration: 3000,
+  duration: 500,
 }
     this.form = formBuilder.group({
       image: [''], user_name: [''], user_password: [''], user_email: [''], user_state: [''],

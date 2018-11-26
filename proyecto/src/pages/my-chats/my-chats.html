@@ -1,0 +1,66 @@
+<!--**************************************  Inicio del Header *****************************************************-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ 'Mis chats'}}</ion-title>
+   <!-- <ion-buttons right>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add">  Crear nuevo mensaje</ion-icon>
+      </button>
+    </ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+<!--**************************************** Fin del Header *****************************************************-->
+<!--**************************************Inicio del Content *****************************************************-->
+<ion-content>
+  <ion-list>
+    <ion-item-sliding class="cssForRoundSLidingItems" *ngFor="let msjs of mensajes index as i" #slidingItem>
+      <ion-item>
+     <!--   <ion-row> Inicio fila del card para la foto de perfi y el contenido del post
+          <ion-col col-4> -->
+              <ion-avatar item-start (click)="especificacion()">
+              <img [src]="mensajes[i].profilePic">
+            </ion-avatar>
+            <h2>{{mensajes[i].nombre}} <span style="color:darkgray">{{mensajes[i].username}} 10/10/2018 </span></h2> 
+              <p>{{mensajes[i].lastMessage}}</p>
+     <!--       </ion-col>
+         </ion-row> Inicio fila del card para la foto de perfi y el contenido del post-->
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="dark" icon-start>
+          <ion-icon name="ios-more"></ion-icon>
+
+        </button>
+        <button ion-button color="dark" icon-start>
+          <ion-icon name="text"></ion-icon>
+
+        </button>
+        <button ion-button color="dark" icon-start>
+          <ion-icon name="call"></ion-icon>
+        </button>
+      </ion-item-options>
+
+      <ion-item-options side="left">
+        <button ion-button color="dark" (click)="deleteItem(item,slidingItem)" icon-start>
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+<!--**************************************Fin del Content *****************************************************-->
+
+
+<!--**************************************Inicio del Footer *****************************************************-->
+<footer>  
+</footer>
+<!-- Acá usamos el selector del componente footer, debemos revisar:
+1. footer.ts y ver su selector para aplicarlo acá
+2. footer.html y copiar el contenido que queremos plasmar en el <footer>
+3. components.modules.ts e importar IonicModule y el componente Footer
+4. app.module.ts e importar el ComponentsModule -->
+<!--**************************************Inicio del Footer *****************************************************-->

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title class="centrado">Jesús Amaro<br/>@jesusamaro</ion-title>
+  </ion-navbar>
+  <ion-item>
+      <ion-label>Desactivar chat</ion-label>
+      <ion-toggle></ion-toggle>
+    </ion-item>
+</ion-header>
+
+
+<ion-content>
+    <ion-row>
+        <ion-col col-12>
+            <div style=" float: left">
+      <ion-card class="mensajeStyle">
+    <ion-card-content style="color:white"> <!--Inicio card-content. Indicamos ion-card-contenr para que el contenido se ajuste a la card-->
+      <P>¿Por donde vas?</P>
+    </ion-card-content> <!--Fin  card-content.-->
+    </ion-card>
+  </div>
+  </ion-col>
+</ion-row>
+    <ion-row>
+  <ion-col col-12>
+      <div style=" float: right">
+      <ion-card class="respuestaStyle">
+    <ion-card-content> <!--Inicio card-content. Indicamos ion-card-contenr para que el contenido se ajuste a la card-->
+      <P>Voy saliendo</P>
+    </ion-card-content> <!--Fin  card-content.-->
+    </ion-card>
+  </div>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col col-6>
+<ion-item>
+    <ion-input placeholder="Escribe un mensaje"></ion-input>
+  </ion-item>
+</ion-col>
+<ion-col col-6>
+    <button ion-button icon-only clear color="dark">  
+        <ion-icon name="md-send" style="color:#374550"></ion-icon>
+      </button>
+  </ion-col>
+  </ion-row>
+</ion-content>
+
+<!--**************************************Inicio del Footer *****************************************************-->
+<footer>  
+  </footer>
+  <!-- Acá usamos el selector del componente footer, debemos revisar:
+  1. footer.ts y ver su selector para aplicarlo acá
+  2. footer.html y copiar el contenido que queremos plasmar en el <footer>
+  3. components.modules.ts e importar IonicModule y el componente Footer
+  4. app.module.ts e importar el ComponentsModule -->
+  <!--**************************************Inicio del Footer *****************************************************-->

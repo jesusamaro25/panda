@@ -8,6 +8,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RegistroPage } from '../pages/registro/registro';
 import { ProfilePage } from '../pages/profile/profile';
+import { MyChatsPage } from '../pages/my-chats/my-chats';
+import { ChatPage } from '../pages/chat/chat';
 import { Camera } from '@ionic-native/camera';
 import { Dialogs } from '@ionic-native/dialogs';
 import { ComponentsModule } from '../components/components.module'; //necesario para que funcione el decorador componente
@@ -17,7 +19,10 @@ import { ComponentsModule } from '../components/components.module'; //necesario 
     MyApp,
     HomePage,
     RegistroPage,
-    ProfilePage
+    ProfilePage,
+    MyChatsPage,
+    ChatPage
+
     
   ],
   imports: [
@@ -30,7 +35,9 @@ import { ComponentsModule } from '../components/components.module'; //necesario 
     MyApp,
     HomePage,
     RegistroPage,
-    ProfilePage
+    ProfilePage,
+    MyChatsPage,
+    ChatPage
   ],
   providers: [
     StatusBar,

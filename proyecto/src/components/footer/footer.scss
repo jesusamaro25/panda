@@ -1,6 +1,17 @@
 footer {
-    .centrado{
-        position: fixed; top: 25%;
-        left: 40%;
+    .left{
+         left: -26.5%;
+    }
+    .center{
+        left: -7.1%;
+    }
+    .halfright{
+        right: -11%;
+    }
+    .right{
+        right: -26.5%;
+    }
+    .scroll{
+        margin-bottom: 56px;
       }
 }

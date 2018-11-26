@@ -1,22 +1,24 @@
-<!--**************************************Inicio del Footer *****************************************************-->
-  
-<!--¿El Footer debería ser un componente reutilizable?-->
+<div class="scroll">
 <ion-footer>
-  <ion-toolbar>
-    <div class="centrado">
-    <ion-buttons class="centrado">
-    <button ion-button icon-only (click)="mensaje()" >  
-        <ion-icon name="home" style="color:white"></ion-icon>
-      </button>
-      <button ion-button icon-only (click)="mensaje()" >  
-        <ion-icon name="search" style="color:white"></ion-icon>
-      </button>
-      <button ion-button icon-only (click)="mensaje()" >  
-        <ion-icon name="md-paper-plane" style="color:white"></ion-icon>
-      </button>
-    </ion-buttons> 
-  </div>
-  </ion-toolbar>
-</ion-footer>
-<!--**************************************Inicio del Footer *****************************************************-->
-
+    <ion-toolbar>
+      <ion-row>
+        <ion-col col-12 text-center>
+      <ion-buttons>
+         <button ion-button icon-only (click)="mensaje()" class="left" >  
+          <ion-icon name="home" style="color:white"></ion-icon>
+        </button>
+        <button ion-button icon-only (click)="mensaje()" class="center" >  
+          <ion-icon name="search" style="color:white"></ion-icon>
+        </button>
+        <button ion-button icon-only (click)="mensaje()" class="halfright" >  
+          <ion-icon name="ios-chatbubbles" style="color:white"></ion-icon>
+        </button>
+        <button ion-button icon-only (click)="mensaje()" class="right">  
+          <ion-icon name="ios-warning" style="color:white"></ion-icon>
+        </button>
+      </ion-buttons>
+          </ion-col> 
+       </ion-row>
+    </ion-toolbar>
+  </ion-footer>
+</div>
