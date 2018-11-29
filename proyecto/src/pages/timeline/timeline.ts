@@ -34,7 +34,9 @@ export class TimelinePage {
               public loadingCtrl: LoadingController,
               public modalCtrl: ModalController, 
               private dialogs: Dialogs,)
+              
 {
+
   swal("Bienvenido");
   this.form = formBuilder.group({
                             image: [''],
@@ -64,7 +66,7 @@ export class TimelinePage {
 
     			
 
-  				}
+}
 
 
   verPerfil(){

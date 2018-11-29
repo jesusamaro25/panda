@@ -6,52 +6,47 @@
 -->
 <ion-header> 
 
-  <ion-navbar color="registro">
+  <ion-navbar color="grey">
     <ion-title>Registro</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding center text-center class="regi">
+<ion-content padding center text-center>
 
-  <rating [(ngModel)]="rate" readOnly="false" > <!--default value-->
-        max="5" <!--default value-->
-        emptyStarIconName="star-outline" <!--default value-->
-        halfStarIconName="star-half" <!--default value-->
-        starIconName="star" <!--default value-->
-        nullable="false" <!--default value-->
-        (ngModelChange)="onModelChange($event)"> <!--use it when you need to do something when user clicks on a star. in case you only need to change ngModel property, this property can be ommited.-->
-</rating>
+    <ion-img src="assets/imgs/logo.png" style="background: transparent;"
+    width="150px" height="150px"></ion-img>
+
 
     <ion-list>
 
-        <ion-item class="regi">
+        <ion-item>
             <ion-input placeholder="Email"></ion-input>
         </ion-item>
 
-        <ion-item class="regi">
+        <ion-item>
             <ion-input placeholder="Nombre" type="Nombre"></ion-input>
         </ion-item>      
 
-        <ion-item class="regi">
+        <ion-item>
             <ion-input placeholder="Apellido" type="Apellido"></ion-input>
         </ion-item>   
 
-        <ion-item class="regi">
+        <ion-item>
           <ion-input placeholder="Contaseña" type="password"></ion-input>
         </ion-item >
 
-        <ion-item class="regi">
+        <ion-item>
             <ion-input placeholder="Repetir Contaseña" type="password"></ion-input>
         </ion-item>
 
-        <ion-item class="regi">
+        <ion-item>
             <ion-textarea placeholder="Cuentanos Algo sobre ti" style="height: 20vh;"></ion-textarea>
         </ion-item>   
 
     </ion-list>
     
-    <button ion-button round (click)="regi()">Registrarme</button>
+    <button ion-button round (click)="regi()" color="grey">Registrarme</button>
 
 </ion-content>

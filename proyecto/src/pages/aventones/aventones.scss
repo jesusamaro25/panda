@@ -1,22 +1,6 @@
-footer {
-    .left{
-         left: -26.5%;
-    }
-    .center{
-        left: -7.1%;
-    }
-    .halfright{
-        right: -11%;
-    }
-    .right{
-        right: -26.5%;
-    }
-    .scroll{
-        margin-bottom: 56px;
-      }
-
-
-      .profile-image-wrapper {
+page-aventones {
+    
+    .profile-image-wrapper {
         text-align: center;
         margin: 20px 0;   
         .profile-image { 
@@ -88,7 +72,12 @@ footer {
         }
       }
     
-
+    
+    
+    
+    
+    
+    
       .amount{
         color:  map_get($colors,theme_color);
         background: white;
@@ -126,6 +115,7 @@ footer {
       .list-md {
         margin: 15px 0 16px;
       }
+
       .toolbar-background {
         background-color:#374550  !important;
       }
@@ -137,5 +127,6 @@ footer {
         //
         font-size: 1.3rem !important;
       }
+
 
 }

@@ -1,3 +1,4 @@
+import { UserProfilePage } from './../pages/user-profile/user-profile';
 import { Component,ViewChild } from '@angular/core';
 import { Platform , Nav} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
