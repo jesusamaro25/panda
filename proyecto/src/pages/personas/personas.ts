@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserProfilePage } from '../user-profile/user-profile';
+import { MenuUserPage } from '../menu-user/menu-user';
 
 /**
  * Generated class for the PersonasPage page.
@@ -67,7 +68,7 @@ export class PersonasPage {
   }
 
   visitarPerfil(){
-    this.navCtrl.push(UserProfilePage);
+    this.navCtrl.push(MenuUserPage);
   }
 
   ionViewDidLoad() {

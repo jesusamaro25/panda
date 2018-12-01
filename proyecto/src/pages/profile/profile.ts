@@ -1,3 +1,4 @@
+import { TimelinePage } from './../timeline/timeline';
 import { SolicitudesPage } from './../solicitudes/solicitudes';
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, ViewController, ToastController, LoadingController, ToastOptions} from 'ionic-angular';
@@ -124,5 +125,9 @@ export class ProfilePage {
  irSolicitudes(){
   this.navCtrl.push(SolicitudesPage);
  }
+
+ goBack() {
+  this.navCtrl.pop();
+ } 
  
 }

@@ -1,3 +1,4 @@
+import { MenuUserPage } from './../pages/menu-user/menu-user';
 import { SearchPage } from './../pages/search/search';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,6 +21,8 @@ import { ComponentsModule } from '../components/components.module'; //necesario 
 import { Ionic2RatingModule } from 'ionic2-rating';  
 import { SuperTabsModule } from 'ionic2-super-tabs';
 import { SolicitudesPage } from '../pages/solicitudes/solicitudes';
+import { GlobalProvider } from '../providers/global/global';
+import { Storage, IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { SolicitudesPage } from '../pages/solicitudes/solicitudes';
     UserProfilePage,
     SearchPage,
     SolicitudesPage,
+    MenuUserPage,
     ],
   imports: [
     BrowserModule,
@@ -40,6 +44,7 @@ import { SolicitudesPage } from '../pages/solicitudes/solicitudes';
     IonicModule.forRoot(MyApp,{tabsHideOnSubPages: true}),
     Ionic2RatingModule,
     SuperTabsModule.forRoot(),
+    IonicStorageModule.forRoot(),
   ],
   schemas: [
         CUSTOM_ELEMENTS_SCHEMA,
@@ -57,13 +62,15 @@ import { SolicitudesPage } from '../pages/solicitudes/solicitudes';
     UserProfilePage,
     SearchPage,
     SolicitudesPage,
+    MenuUserPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
     Dialogs,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GlobalProvider,
   ]
 })
 export class AppModule {}

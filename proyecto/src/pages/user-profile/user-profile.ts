@@ -1,3 +1,4 @@
+import { MyApp } from './../../app/app.component';
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, ViewController, LoadingController} from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
@@ -9,6 +10,7 @@ import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm
 import { Dialogs } from '@ionic-native/dialogs'; //Para instalar usar comandos ionic cordova plugin add cordova-plugin-dialogs y luego npm install --save @ionic-native/dialogs. Luego se debe añadir el componente al App module
 import { AlertController } from 'ionic-angular';
 import {RatingPage } from '../rating/rating'
+import { GlobalProvider } from "../../providers/global/global";
 
 @IonicPage()
 @Component({
@@ -48,13 +50,17 @@ export class UserProfilePage {
 
               public modalCtrl: ModalController, private dialogs: Dialogs,
 
+              public global:GlobalProvider,
+
               private alertCtrl: AlertController)
               
               {
+              
 
     this.form = formBuilder.group({
       image: [''], user_name: [''], user_password: [''], user_email: [''], user_state: [''],
     });
+
 
     //Aqui se guardan los objetos json dentro del arreglo profile Details
     this.profileDetails = [

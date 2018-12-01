@@ -7,6 +7,7 @@ import { Dialogs } from '@ionic-native/dialogs';
 import { ProfilePage } from '../profile/profile';  //Para instalar usar comandos ionic cordova plugin add cordova-plugin-dialogs y luego npm install --save @ionic-native/dialogs. Luego se debe añadir el componente al App module
 import { UserProfilePage } from '../user-profile/user-profile'
 import swal from 'sweetalert';
+import { MenuUserPage } from '../menu-user/menu-user';
 
 @IonicPage()
 @Component({
@@ -37,7 +38,6 @@ export class TimelinePage {
               
 {
 
-  swal("Bienvenido");
   this.form = formBuilder.group({
                             image: [''],
       											user_name: [''],
@@ -77,7 +77,7 @@ export class TimelinePage {
 
 
   visitarPerfil(){
-    this.navCtrl.push(UserProfilePage);
+    this.navCtrl.push(MenuUserPage);
   }
 
 

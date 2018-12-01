@@ -1,3 +1,4 @@
+import { MenuUserPage } from './../menu-user/menu-user';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -55,7 +56,7 @@ export class AventonesPage {
 
       
   visitarPerfil(){
-    this.navCtrl.push(UserProfilePage);
+    this.navCtrl.push(MenuUserPage);
   }
 
   getProfileImageStyle() {
