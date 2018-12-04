@@ -19,9 +19,7 @@ export class HomePage {
 
   login(){
 
-    this.navCtrl.push(TimelinePage);
-    console.log("Email :"+this.email)
-    console.log("Contrasena :"+this.contrasena);
+    this.navCtrl.setRoot(TimelinePage)
 
   }
 

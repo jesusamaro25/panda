@@ -200,5 +200,9 @@ rating()
     return 'url(' + this.form.controls['image'].value + ')'
   }
 
+  back(){
+    this.navCtrl.pop();
+  }
+
 
 }

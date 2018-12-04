@@ -23,6 +23,7 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
 import { SolicitudesPage } from '../pages/solicitudes/solicitudes';
 import { GlobalProvider } from '../providers/global/global';
 import { Storage, IonicStorageModule } from '@ionic/storage';
+import { MenuprofilePage } from '../pages/menuprofile/menuprofile';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
     SearchPage,
     SolicitudesPage,
     MenuUserPage,
+    MenuprofilePage,
     ],
   imports: [
     BrowserModule,
@@ -63,6 +65,7 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
     SearchPage,
     SolicitudesPage,
     MenuUserPage,
+    MenuprofilePage,
   ],
   providers: [
     StatusBar,

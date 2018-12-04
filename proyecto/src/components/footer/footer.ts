@@ -23,15 +23,15 @@ export class FooterComponent {
     this.text = 'Hello World';
   }
   mensaje() {
-    this.navCtlr.push(MyChatsPage);
+    this.navCtlr.setRoot(MyChatsPage);
   }
 
   timeline() {
-    this.navCtlr.push(TimelinePage);
+    this.navCtlr.setRoot(TimelinePage);
   }
 
   search() {
-    this.navCtlr.push(SearchPage);
+    this.navCtlr.setRoot(SearchPage);
   }
 
 }

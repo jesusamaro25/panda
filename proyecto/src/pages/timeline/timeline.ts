@@ -1,3 +1,4 @@
+import { MenuprofilePage } from './../menuprofile/menuprofile';
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, ViewController, ToastController, LoadingController, ToastOptions} from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
@@ -71,7 +72,7 @@ export class TimelinePage {
 
   verPerfil(){
 
-    this.navCtrl.push(ProfilePage); 
+    this.navCtrl.push(MenuprofilePage); 
     
   }
 
