@@ -4,9 +4,11 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import { ModalController} from 'ionic-angular';
 import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm install --save @ionic-native/camera
 import { Dialogs } from '@ionic-native/dialogs';
-import { ProfilePage } from '../profile/profile';  //Para instalar usar comandos ionic cordova plugin add cordova-plugin-dialogs y luego npm install --save @ionic-native/dialogs. Luego se debe añadir el componente al App module
-import { UserProfilePage } from '../user-profile/user-profile'
+import { ProfilePage } from '../profile/profile';
+import { PublicarPostPage } from '../publicar-post/publicar-post';  //Para instalar usar comandos ionic cordova plugin add cordova-plugin-dialogs y luego npm install --save @ionic-native/dialogs. Luego se debe añadir el componente al App module
+import { UserProfilePage } from '../user-profile/user-profile';
 import swal from 'sweetalert';
+import { AlertController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -33,7 +35,8 @@ export class TimelinePage {
               public toastCtrl: ToastController,
               public loadingCtrl: LoadingController,
               public modalCtrl: ModalController, 
-              private dialogs: Dialogs,)
+              private dialogs: Dialogs,
+              public alertCtrl: AlertController)
 {
   swal("Bienvenido");
   this.form = formBuilder.group({
@@ -73,6 +76,11 @@ export class TimelinePage {
     
   }
 
+  publicarPost(){
+
+    this.navCtrl.push(PublicarPostPage); 
+    
+  }
 
   visitarPerfil(){
     this.navCtrl.push(UserProfilePage);
@@ -120,6 +128,34 @@ swal({text: "¿Desea solicitar aventón?", buttons: ['Cancel', 'Ok'] })
     }
   }*/
 
+  redactarPost() {
+  let alert = this.alertCtrl.create({
+    title: '¿A Donde vamos?',
+    inputs: [
+      {
+        name: 'post',
+        placeholder: '¡Puede que hoy ayudes mucho a alguien!'
+      },
+     
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Enviar',
+        handler: data => {
+          swal("¡Listo!", "Gracias por tu disposición", "success");
+        }
+      }
+    ]    
+  }); 
+   alert.present();
+}
   processWebImage(event) {
     let reader = new FileReader();
     reader.onload = (readerEvent) => {

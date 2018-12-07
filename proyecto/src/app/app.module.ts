@@ -15,6 +15,7 @@ import { Camera } from '@ionic-native/camera';
 import { Dialogs } from '@ionic-native/dialogs';
 import { ComponentsModule } from '../components/components.module'; //necesario para que funcione el decorador componente
 import { Ionic2RatingModule } from 'ionic2-rating';  
+import { PublicarPostPage } from '../pages/publicar-post/publicar-post';
 @NgModule({
   declarations: [
     MyApp,
@@ -23,6 +24,7 @@ import { Ionic2RatingModule } from 'ionic2-rating';
     ProfilePage,
     TimelinePage,  
     UserProfilePage,
+    PublicarPostPage
    
     
   ],
@@ -44,6 +46,7 @@ import { Ionic2RatingModule } from 'ionic2-rating';
     ProfilePage,
     TimelinePage,
     UserProfilePage,
+    PublicarPostPage
      
   ],
   providers: [
