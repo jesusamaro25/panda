@@ -1,7 +1,7 @@
 import { TimelinePage } from './../timeline/timeline';
 import { SolicitudesPage } from './../solicitudes/solicitudes';
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, ViewController, ToastController, LoadingController, ToastOptions} from 'ionic-angular';
+import {IonicPage, NavController, ViewController, ToastController, LoadingController, ToastOptions, App} from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { ModalController} from 'ionic-angular';
 import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm install --save @ionic-native/camera
@@ -43,7 +43,8 @@ export class ProfilePage {
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera,
               
-              public toastCtrl: ToastController, public loadingCtrl: LoadingController,public modalCtrl: ModalController, private dialogs: Dialogs)
+              public toastCtrl: ToastController, public loadingCtrl: LoadingController,public modalCtrl: ModalController, private dialogs: Dialogs
+              ,public appCtrl: App)
               
               {
 
@@ -123,7 +124,7 @@ export class ProfilePage {
   }
 
  irSolicitudes(){
-  this.navCtrl.push(SolicitudesPage);
+  this.appCtrl.getRootNav().push(SolicitudesPage);
  }
 
  goBack() {
