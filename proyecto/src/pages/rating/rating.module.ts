@@ -9,11 +9,11 @@ import { Ionic2RatingModule } from 'ionic2-rating';
   ],
   imports: [
     IonicPageModule.forChild(RatingPage),
+    Ionic2RatingModule
 
   ],
   schemas: [
-        CUSTOM_ELEMENTS_SCHEMA,
-        NO_ERRORS_SCHEMA
+        
       ]
 })
 export class RatingPageModule {}

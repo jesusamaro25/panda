@@ -86,8 +86,8 @@ this.toastOptions={
 //Para usar modal, genero un page que será el modal, importo ModalController al ts donde se tendrá la función que llamara al modal
 // y se crea una constante = modalCtrl.create('PaginaModal') y luego se usa el metodo present
   abrirRating(){
-    const modal = this.modalCtrl.create('RatingPage');
-    modal.present();
+    this.navCtrl.push('RatingPage');
+    
   }
 
 

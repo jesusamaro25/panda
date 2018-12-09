@@ -38,7 +38,7 @@ export class TimelinePage {
               private dialogs: Dialogs,
               public alertCtrl: AlertController)
 {
-  swal("Bienvenido");
+  
   this.form = formBuilder.group({
                             image: [''],
       											user_name: [''],

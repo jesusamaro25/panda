@@ -197,4 +197,19 @@ background-color: transparent !important;
     height: 100%;
   }
 }
+
+ul {
+  padding: 0px;
+
+  &.rating li {
+    padding: 5px 10px !important;
+    background: none;
+    color: palegoldenrod;
+
+    ion-icon {
+      font-size: 30px;
+    }
+  }
+}
+
 }

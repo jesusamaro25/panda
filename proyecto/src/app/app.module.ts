@@ -24,8 +24,8 @@ import { PublicarPostPage } from '../pages/publicar-post/publicar-post';
     ProfilePage,
     TimelinePage,  
     UserProfilePage,
-    PublicarPostPage
-   
+    PublicarPostPage,
+    
     
   ],
   imports: [
@@ -46,7 +46,8 @@ import { PublicarPostPage } from '../pages/publicar-post/publicar-post';
     ProfilePage,
     TimelinePage,
     UserProfilePage,
-    PublicarPostPage
+    PublicarPostPage,
+   
      
   ],
   providers: [
