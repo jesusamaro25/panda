@@ -6,7 +6,7 @@
      
 
     <ion-buttons right>
-      <button ion-button icon-only>
+      <button ion-button menuToggle>
         <ion-icon name="settings"></ion-icon>
       </button> 
     </ion-buttons>
@@ -15,7 +15,22 @@
 </ion-header>
 
 <!--**************************************** Fin del Header *****************************************************-->
-
+<ion-menu persistent="true" [content]="NAV" side="right" no-border >
+  <ion-content style="background-color: transparent !important;" no-border >
+    
+    <ion-list>
+      <button ion-item style="background: rgba(109, 127, 127, 0.67); color: white" (click)="EditarPerfil()">
+         <ion-icon style="color:#77a8a8" name="ios-construct"></ion-icon>
+      Editar Perfil 
+    </button>
+      <button ion-item  style="background: rgba(109, 127, 127, 0.67); color: white" (click)="NotificacionCerrarSesion()">
+        <ion-icon name="ios-close-circle" style="color:#77a8a8"></ion-icon>
+      Cerrar sesión
+    </button>
+  </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav #NAV [root]=""></ion-nav>
 
 
 <!--**************************************Inicio del Content *****************************************************-->

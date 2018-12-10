@@ -16,6 +16,7 @@ import { Camera } from '@ionic-native/camera';
 import { Dialogs } from '@ionic-native/dialogs';
 import { ComponentsModule } from '../components/components.module'; //necesario para que funcione el decorador componente
 import { Ionic2RatingModule } from 'ionic2-rating';  
+import { EditarProfilePage } from '../pages/editar-profile/editar-profile';
 @NgModule({
   declarations: [
     MyApp,
@@ -26,6 +27,7 @@ MyChatsPage,
     ChatPage,
  TimelinePage,  
     UserProfilePage,
+    EditarProfilePage,
     ],
   imports: [
     BrowserModule,
@@ -47,6 +49,7 @@ MyChatsPage,
     ChatPage,
 TimelinePage,
     UserProfilePage,
+    EditarProfilePage,
   ],
   providers: [
     StatusBar,

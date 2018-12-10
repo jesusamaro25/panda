@@ -2,6 +2,9 @@ import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, ViewController, ToastController, LoadingController, ToastOptions} from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { ModalController} from 'ionic-angular';
+import { EditarProfilePage } from '../editar-profile/editar-profile';
+import { HomePage } from '../home/home';
+
 import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm install --save @ionic-native/camera
 import { Dialogs } from '@ionic-native/dialogs'; //Para instalar usar comandos ionic cordova plugin add cordova-plugin-dialogs y luego npm install --save @ionic-native/dialogs. Luego se debe añadir el componente al App module
 //import { ModalPage } from '../modal/modal';
@@ -128,5 +131,23 @@ this.toastOptions={
  toastPrueba(){
 this.toastCtrl.create(this.toastOptions).present();
  }
- 
+ EditarPerfil() {
+  this.navCtrl.push(EditarProfilePage);
+}
+CerrarSesion(){
+  //this.navCtrl.push(HomePage);
+  document.write("Has cerrado sesión de manera exitosa");
+}
+NotificacionCerrarSesion(){
+  swal({text: "¿Seguro que deseas cerrar sesión?", buttons: ['Cancel', 'Ok'] })
+   .then((solicitar) => {
+if (solicitar) {
+  swal("¡Hasta la próxima!", {
+    icon: "success",
+  });
+  setTimeout(this.CerrarSesion, 3000);
+  //this.navCtrl.push(HomePage);
+} 
+});
+}
 }
