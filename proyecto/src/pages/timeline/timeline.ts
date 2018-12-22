@@ -1,3 +1,4 @@
+import { MenuprofilePage } from './../menuprofile/menuprofile';
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, ViewController, ToastController, LoadingController, ToastOptions} from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
@@ -7,6 +8,7 @@ import { Dialogs } from '@ionic-native/dialogs';
 import { ProfilePage } from '../profile/profile';  //Para instalar usar comandos ionic cordova plugin add cordova-plugin-dialogs y luego npm install --save @ionic-native/dialogs. Luego se debe añadir el componente al App module
 import { UserProfilePage } from '../user-profile/user-profile'
 import swal from 'sweetalert';
+import { MenuUserPage } from '../menu-user/menu-user';
 
 @IonicPage()
 @Component({
@@ -34,8 +36,9 @@ export class TimelinePage {
               public loadingCtrl: LoadingController,
               public modalCtrl: ModalController, 
               private dialogs: Dialogs,)
+              
 {
-  swal("Bienvenido");
+
   this.form = formBuilder.group({
                             image: [''],
       											user_name: [''],
@@ -64,18 +67,18 @@ export class TimelinePage {
 
     			
 
-  				}
+}
 
 
   verPerfil(){
 
-    this.navCtrl.push(ProfilePage); 
+    this.navCtrl.push(MenuprofilePage); 
     
   }
 
 
   visitarPerfil(){
-    this.navCtrl.push(UserProfilePage);
+    this.navCtrl.push(MenuUserPage);
   }
 
 

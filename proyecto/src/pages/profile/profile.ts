@@ -1,5 +1,7 @@
+import { TimelinePage } from './../timeline/timeline';
+import { SolicitudesPage } from './../solicitudes/solicitudes';
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, ViewController, ToastController, LoadingController, ToastOptions} from 'ionic-angular';
+import {IonicPage, NavController, ViewController, ToastController, LoadingController, ToastOptions, App} from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { ModalController} from 'ionic-angular';
 import { EditarProfilePage } from '../editar-profile/editar-profile';
@@ -44,18 +46,14 @@ export class ProfilePage {
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera,
               
-              public toastCtrl: ToastController, public loadingCtrl: LoadingController,public modalCtrl: ModalController, private dialogs: Dialogs)
+              public toastCtrl: ToastController, public loadingCtrl: LoadingController,public modalCtrl: ModalController, private dialogs: Dialogs
+              ,public appCtrl: App)
               
               {
-//PRUEBA METODO TOAST
-this.toastOptions={
-  message: 'Surprisen b',
-  duration: 500,
-}
+
     this.form = formBuilder.group({
       image: [''], user_name: [''], user_password: [''], user_email: [''], user_state: [''],
     });
-    this.toastPrueba();
 
     
     //Aqui se guardan los objetos json dentro del arreglo profile Details
@@ -127,9 +125,9 @@ this.toastOptions={
   getProfileImageStyle() {
     return 'url(' + this.form.controls['image'].value + ')'
   }
- //PRUEBA TOAST
- toastPrueba(){
-this.toastCtrl.create(this.toastOptions).present();
+
+ irSolicitudes(){
+  this.appCtrl.getRootNav().push(SolicitudesPage);
  }
  EditarPerfil() {
   this.navCtrl.push(EditarProfilePage);
@@ -150,4 +148,9 @@ if (solicitar) {
 } 
 });
 }
+
+ goBack() {
+  this.navCtrl.pop();
+ } 
+ 
 }
