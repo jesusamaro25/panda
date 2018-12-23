@@ -127,6 +127,13 @@ page-aventones {
         //
         font-size: 1.3rem !important;
       }
+      .icon-content{
+        color: map_get($colors,silver-gray);
+      }
+
+      .ion-content{
+        backgrou-color: map_get($colors,prueba);
+      }
 
 
 }

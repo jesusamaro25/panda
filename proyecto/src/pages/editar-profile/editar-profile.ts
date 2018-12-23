@@ -23,8 +23,16 @@ export class EditarProfilePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditarProfilePage');
   }
-  regi(){
-    alert("Perfil editado");
+  
+  guardarCambios(){
+    swal({text: "¿Seguro que deseas guardar los cambios?", buttons: ['Cancel', 'Ok'] })
+     .then((solicitar) => {
+  if (solicitar) {
+    swal("Los cambios han sido guardados de manera exitosa", {
+      icon: "success",
+    });
+  } 
+  });
   }
   /*getPicture() {
     if (Camera['installed']()) {

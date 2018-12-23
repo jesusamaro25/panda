@@ -96,6 +96,10 @@ background-color: transparent !important;
           color:  map_get($colors,theme_color);
           background: white;
         }
+        
+        .icon-content{
+          color: map_get($colors,silver-gray);
+        }
         .userDetails{
           color:white;
           text-align: left;

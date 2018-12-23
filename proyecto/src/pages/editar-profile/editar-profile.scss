@@ -162,4 +162,15 @@ page-editar-profile {
                   //
                   font-size: 1.3rem !important;
                 }
+                .camera-placeholder{
+                  color: white !important;
+                }
+                .items-editar {
+                  color: map_get($colors,light);
+                }
+
+                .button-editar{
+                  background-color: map_get($colors,silver-gray);
+              }
+              
 }

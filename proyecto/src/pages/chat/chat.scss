@@ -61,4 +61,16 @@ page-chat {
             max-width:650px;
             margin:auto;
           }
+          .izquierda{
+            float: left;
+          }
+          .derecha{
+            float: right;
+          }
+          .ioncard-color{
+            color: map_get($colors,light);
+          }
+          .ionbutton-color{
+            color: map_get($colors,grey);
+          }
 }

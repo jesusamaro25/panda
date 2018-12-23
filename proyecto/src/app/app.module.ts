@@ -27,7 +27,9 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
 import { MenuprofilePage } from '../pages/menuprofile/menuprofile';
 
 
+
 import { PublicarPostPage } from '../pages/publicar-post/publicar-post';
+import { AventonesPage } from '../pages/aventones/aventones';
 @NgModule({
   declarations: [
     MyApp,
@@ -40,7 +42,11 @@ import { PublicarPostPage } from '../pages/publicar-post/publicar-post';
     UserProfilePage,
     PublicarPostPage,
     MenuUserPage,
-    MenuprofilePage
+    MenuprofilePage,
+    SearchPage,
+    AventonesPage,
+    SolicitudesPage,
+    EditarProfilePage
 
     
     
@@ -69,7 +75,11 @@ import { PublicarPostPage } from '../pages/publicar-post/publicar-post';
     UserProfilePage,
     PublicarPostPage,
     MenuprofilePage,
-    MenuUserPage
+    MenuUserPage,
+    SearchPage,
+    AventonesPage,
+    SolicitudesPage,
+    EditarProfilePage
    
      
   ],
