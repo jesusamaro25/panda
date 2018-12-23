@@ -23,6 +23,6 @@ export class RegistroPage {
   }
 
   regi(){
-    alert("Registro Existoso");
+    swal("¡Listo!", "Bienvenido a la familia Panda", "success");
   }
 }

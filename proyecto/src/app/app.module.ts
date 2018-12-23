@@ -26,6 +26,8 @@ import { GlobalProvider } from '../providers/global/global';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { MenuprofilePage } from '../pages/menuprofile/menuprofile';
 
+
+import { PublicarPostPage } from '../pages/publicar-post/publicar-post';
 @NgModule({
   declarations: [
     MyApp,
@@ -36,12 +38,13 @@ import { MenuprofilePage } from '../pages/menuprofile/menuprofile';
     ChatPage,
     TimelinePage,  
     UserProfilePage,
-    EditarProfilePage,
-    SearchPage,
-    SolicitudesPage,
+    PublicarPostPage,
     MenuUserPage,
-    MenuprofilePage,
-    ],
+    MenuprofilePage
+
+    
+    
+  ],
   imports: [
     BrowserModule,
     ComponentsModule,
@@ -64,11 +67,11 @@ import { MenuprofilePage } from '../pages/menuprofile/menuprofile';
     ChatPage,
     TimelinePage,
     UserProfilePage,
-    EditarProfilePage,
-    SearchPage,
-    SolicitudesPage,
-    MenuUserPage,
+    PublicarPostPage,
     MenuprofilePage,
+    MenuUserPage
+   
+     
   ],
   providers: [
     StatusBar,

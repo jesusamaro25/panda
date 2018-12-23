@@ -22,4 +22,9 @@ export class RatingPage {
     console.log('ionViewDidLoad RatingPage');
   }
 
+  calificar()
+  {
+  	swal("¡Listo!","Has calificado a José Felipe","success");
+  }
+
 }

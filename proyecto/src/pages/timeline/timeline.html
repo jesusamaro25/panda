@@ -64,7 +64,13 @@
         </ion-grid> 
       </ion-card> <!--Fin publicaciones-->
     </form> <!-- CONSULTAR Fin Form --> 
-  
+    <ion-fab bottom right #fab>
+   <button style="background-color:#6d7f7f"  (click)="publicarPost()" ion-fab>
+     <div>
+        <ion-icon  name="md-create"   ></ion-icon>
+      </div> 
+   </button>
+  </ion-fab>
 </ion-content>
 
 <footer>  
