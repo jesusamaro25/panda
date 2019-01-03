@@ -2,10 +2,8 @@ import { TimelinePage } from './../../pages/timeline/timeline';
 import { Component } from '@angular/core';
 import { NavController} from 'ionic-angular';
 import { MyChatsPage} from '../../pages/my-chats/my-chats';
-import { ChatPage} from '../../pages/chat/chat';
 import { SearchPage } from '../../pages/search/search';
 import { AventonesPage } from '../../pages/aventones/aventones';
-import { EditarProfilePage } from '../../pages/editar-profile/editar-profile';
 /**
  * Generated class for the FooterComponent component.
  *

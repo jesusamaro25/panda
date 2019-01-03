@@ -1,11 +1,9 @@
-import { TimelinePage } from './../timeline/timeline';
 import { SolicitudesPage } from './../solicitudes/solicitudes';
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, ViewController, ToastController, LoadingController, ToastOptions, App} from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { ModalController} from 'ionic-angular';
 import { EditarProfilePage } from '../editar-profile/editar-profile';
-import { HomePage } from '../home/home';
 
 import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm install --save @ionic-native/camera
 import { Dialogs } from '@ionic-native/dialogs'; //Para instalar usar comandos ionic cordova plugin add cordova-plugin-dialogs y luego npm install --save @ionic-native/dialogs. Luego se debe añadir el componente al App module
@@ -25,8 +23,6 @@ export class ProfilePage {
   //followers = Followers;
   publicaciones: any[]=['Cabudare','Barquisimeto','Manzano'];
   //publicacionPage = PublicacionPage;
-  private isDisabled: boolean = true;
-  private caption_name: string = "EDIT";
   //-------------------PRUEBA VARIABLE
   toastOptions: ToastOptions; 
   

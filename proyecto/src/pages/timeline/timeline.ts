@@ -4,10 +4,7 @@ import {IonicPage, NavController, ViewController, ToastController, LoadingContro
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { ModalController} from 'ionic-angular';
 import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm install --save @ionic-native/camera
-import { Dialogs } from '@ionic-native/dialogs';
-import { ProfilePage } from '../profile/profile';
 import { PublicarPostPage } from '../publicar-post/publicar-post';  //Para instalar usar comandos ionic cordova plugin add cordova-plugin-dialogs y luego npm install --save @ionic-native/dialogs. Luego se debe añadir el componente al App module
-import { UserProfilePage } from '../user-profile/user-profile';
 import swal from 'sweetalert';
 import { MenuUserPage } from '../menu-user/menu-user';
 import { AlertController } from 'ionic-angular';
@@ -24,9 +21,6 @@ export class TimelinePage {
   form: FormGroup;
  // profileDetails: any[];
   postDetails: any[];
- 
-  private isDisabled: boolean = true;
-  private caption_name: string = "EDIT";
   //-------------------PRUEBA VARIABLE
   toastOptions: ToastOptions; 
   
@@ -37,7 +31,6 @@ export class TimelinePage {
               public toastCtrl: ToastController,
               public loadingCtrl: LoadingController,
               public modalCtrl: ModalController, 
-              private dialogs: Dialogs,
               public alertCtrl: AlertController)
 {
   
@@ -101,14 +94,14 @@ export class TimelinePage {
 
  enviarSolicitudAventon()
  {
-swal({text: "¿Desea solicitar aventón?", buttons: ['Cancel', 'Ok'] })
-     .then((solicitar) => {
-  if (solicitar) {
-    swal("Tu solicitud ha sido enviada", {
-      icon: "success",
-    });
-  } 
-});
+  swal({text: "¿Desea solicitar aventón?", buttons: ['Cancel', 'Ok'] })
+    .then((solicitar) => {
+      if (solicitar) {
+        swal("Tu solicitud ha sido enviada", {
+          icon: "success",
+        });
+      } 
+  });
  }
 
 

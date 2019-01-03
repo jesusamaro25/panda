@@ -1,3 +1,4 @@
+import { EditarProfilePage } from './../editar-profile/editar-profile';
 import { ProfilePage } from './../profile/profile';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -23,6 +24,10 @@ export class MenuprofilePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuprofilePage');
+  }
+
+  goEdit(){
+    this.navCtrl.push(EditarProfilePage);
   }
 
 }

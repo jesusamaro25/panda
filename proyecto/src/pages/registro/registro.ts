@@ -1,5 +1,7 @@
+import { TimelinePage } from './../timeline/timeline';
+import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController} from 'ionic-angular';
 
 /**
  * Generated class for the RegistroPage page.
@@ -15,14 +17,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RegistroPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  userData={"username":"Seikuro3","password":"","name":"","lastname":"","bio":""}
+  resposeData: any;
+
+  constructor(public navCtrl: NavController,public authService: AuthServiceProvider) {
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegistroPage');
   }
 
-  regi(){
-    swal("¡Listo!", "Bienvenido a la familia Panda", "success");
+  registro(){
+
+    
+    this.authService.postRegistro(this.userData,"users").then((result)=>{
+
+      this.resposeData=result;
+      console.log(this.resposeData);
+      localStorage.setItem('userData',JSON.stringify(this.resposeData))
+      swal("¡Listo!", "Bienvenido a la familia Panda", "success");
+      this.navCtrl.push(TimelinePage);
+
+    },(err)=>{
+
+
+    });
+
   }
 }

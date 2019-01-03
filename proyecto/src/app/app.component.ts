@@ -1,10 +1,7 @@
-import { UserProfilePage } from './../pages/user-profile/user-profile';
 import { Component,ViewChild } from '@angular/core';
 import { Platform , Nav} from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { GlobalProvider } from "../providers/global/global";
-import { Storage } from '@ionic/storage';
 
 import { HomePage } from '../pages/home/home';
 @Component({

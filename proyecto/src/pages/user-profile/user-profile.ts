@@ -1,4 +1,3 @@
-import { MyApp } from './../../app/app.component';
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, ViewController, LoadingController} from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
@@ -8,8 +7,6 @@ import { ModalController} from 'ionic-angular';
 //------------FIN PARA USAR MODAL-
 import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm install --save @ionic-native/camera
 import { Dialogs } from '@ionic-native/dialogs'; //Para instalar usar comandos ionic cordova plugin add cordova-plugin-dialogs y luego npm install --save @ionic-native/dialogs. Luego se debe añadir el componente al App module
-import { AlertController } from 'ionic-angular';
-import {RatingPage } from '../rating/rating'
 import { GlobalProvider } from "../../providers/global/global";
 
 @IonicPage()
@@ -26,8 +23,6 @@ export class UserProfilePage {
   //followers = Followers;
   
   //publicacionPage = PublicacionPage;
-  private isDisabled: boolean = true;
-  private caption_name: string = "EDIT";
   //-------------------PRUEBA VARIABLE
   
   
@@ -50,9 +45,7 @@ export class UserProfilePage {
 
               public modalCtrl: ModalController, private dialogs: Dialogs,
 
-              public global:GlobalProvider,
-
-              private alertCtrl: AlertController)
+              public global:GlobalProvider)
               
               {
               
@@ -90,64 +83,12 @@ export class UserProfilePage {
   }
 
 
-  dejarDeSeguir(){
-    swal({text: "¿Seguro que deseas dejar de seguir a este usuario?", buttons: ['Cancel', 'Ok'] })
-     .then((solicitar) => {
-  if (solicitar) {
-    swal("Haz dejado de seguir a este usuario", {
-      icon: "success",
-    });
-  } 
-});
-  }
-
-  alerta() {
-  let alert = this.alertCtrl.create({
-    title: '¿Por qué deseas denunciar a este usuario?',
-    inputs: [
-      {
-        name: 'denuncia',
-        placeholder: 'echa el cuento'
-      },
-     
-    ],
-    buttons: [
-      {
-        text: 'Cancel',
-        role: 'cancel',
-        handler: data => {
-          console.log('Cancel clicked');
-        }
-      },
-      {
-        text: 'Enviar',
-        handler: data => {
-          swal("Entendido...", "Tu denuncia está siendo procesada", "success");
-        }
-      }
-    ]    
-  }); 
-   alert.present();
-}
-
-
 rating()
 {
   swal("rating");
   }
 
 
-  activarNotificaciones()
-  {
-     swal({text: "¿Deseas recibir una notificación cuando este usuario haga un post?", buttons: ['Cancel', 'Ok'] })
-     .then((solicitar) => {
-  if (solicitar) {
-    swal("Recibirás una notificación cada vez que este usuario realice un post", {
-      icon: "success",
-    });
-  } 
-});
-  }
   openFollowers() {
     this.navCtrl.push('Followers');
   }
@@ -202,6 +143,18 @@ rating()
 
   back(){
     this.navCtrl.pop();
+  }
+
+  enviarSolicitudAventon()
+  {
+   swal({text: "¿Desea solicitar aventón?", buttons: ['Cancel', 'Ok'] })
+     .then((solicitar) => {
+       if (solicitar) {
+         swal("Tu solicitud ha sido enviada", {
+           icon: "success",
+         });
+       } 
+   });
   }
 
 

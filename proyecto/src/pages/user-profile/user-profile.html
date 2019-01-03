@@ -3,6 +3,7 @@
 <ion-header no-border>
   <ion-navbar color="primary">
     <ion-title></ion-title>
+    
      <button ion-button menuToggle right>
         <ion-icon name="menu"></ion-icon>
       </button> 
@@ -10,36 +11,6 @@
   
   </ion-navbar>
 </ion-header>
-
-<ion-menu persistent="true" [content]="NAV" side="right" no-border >
-  <ion-content style="background-color: transparent !important;" no-border >
-    
-    
-    <ion-list>
-      <button ion-item style="background: rgba(109, 127, 127, 0.67); color: white" (click)="activarNotificaciones()">
-         <ion-icon style="color:#77a8a8" name="notifications"></ion-icon>
-      Activar Notificaciones  
-    </button>
-      <button ion-item  style="background: rgba(109, 127, 127, 0.67); color: white" (click)="dejarDeSeguir()">
-        <ion-icon name="sad" style="color:#77a8a8"></ion-icon>
-      Dejar de seguir
-    </button>
-    <button ion-item style="background: rgba(109, 127, 127, 0.67); color: white" (click)="abrirRating()" >  
-      <ion-icon style="color:#77a8a8" name="star"></ion-icon>
-      Calificar
-    </button>
-    <button ion-item style="background: rgba(109, 127, 127, 0.67); color: white" (click)="alerta()">
-      <ion-icon style="color:#77a8a8" name="close-circle"></ion-icon>
-      Denunciar
-    </button>
-    
-    </ion-list>
-    
-  </ion-content>
-</ion-menu>
-
-
-<ion-nav #NAV [root]=""></ion-nav>
 
 
 
@@ -127,9 +98,9 @@
               <ion-col col-8>
                 <ion-row>
                   <ion-col col-4 >
-                    <button ion-button icon-only clear (click)="toastPrueba()">
+                    <button ion-button icon-only clear (click)="enviarSolicitudAventon()">
                       <div>
-                        <ion-icon class="icon-content" name="ios-car"   ></ion-icon>
+                        <ion-icon class="icon-content" name="ios-car"  ></ion-icon>
                       </div> 
                     </button> <!--aqui agrego metodo tambien-->
                   </ion-col>

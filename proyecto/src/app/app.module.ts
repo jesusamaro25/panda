@@ -14,7 +14,6 @@ import { ProfilePage } from '../pages/profile/profile';
 import { MyChatsPage } from '../pages/my-chats/my-chats';
 import { ChatPage } from '../pages/chat/chat';
 import { UserProfilePage } from '../pages/user-profile/user-profile';
-import { RatingPage } from '../pages/rating/rating';
 import { Camera } from '@ionic-native/camera';
 import { Dialogs } from '@ionic-native/dialogs';
 import { ComponentsModule } from '../components/components.module'; //necesario para que funcione el decorador componente
@@ -23,13 +22,14 @@ import { EditarProfilePage } from '../pages/editar-profile/editar-profile';
 import { SuperTabsModule } from 'ionic2-super-tabs';
 import { SolicitudesPage } from '../pages/solicitudes/solicitudes';
 import { GlobalProvider } from '../providers/global/global';
-import { Storage, IonicStorageModule } from '@ionic/storage';
+import { IonicStorageModule } from '@ionic/storage';
 import { MenuprofilePage } from '../pages/menuprofile/menuprofile';
+import { HttpModule } from '@angular/http'
 
 
 
 import { PublicarPostPage } from '../pages/publicar-post/publicar-post';
-import { AventonesPage } from '../pages/aventones/aventones';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 @NgModule({
   declarations: [
     MyApp,
@@ -44,11 +44,8 @@ import { AventonesPage } from '../pages/aventones/aventones';
     MenuUserPage,
     MenuprofilePage,
     SearchPage,
-    AventonesPage,
     SolicitudesPage,
-    EditarProfilePage
-
-    
+    EditarProfilePage,
     
   ],
   imports: [
@@ -58,6 +55,7 @@ import { AventonesPage } from '../pages/aventones/aventones';
     Ionic2RatingModule,
     SuperTabsModule.forRoot(),
     IonicStorageModule.forRoot(),
+    HttpModule
   ],
   schemas: [
         CUSTOM_ELEMENTS_SCHEMA,
@@ -77,9 +75,8 @@ import { AventonesPage } from '../pages/aventones/aventones';
     MenuprofilePage,
     MenuUserPage,
     SearchPage,
-    AventonesPage,
     SolicitudesPage,
-    EditarProfilePage
+    EditarProfilePage,
    
      
   ],
@@ -87,9 +84,10 @@ import { AventonesPage } from '../pages/aventones/aventones';
     StatusBar,
     SplashScreen,
     Camera,
-    Dialogs,
+    Dialogs,AuthServiceProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GlobalProvider,
+    
   ]
 })
 export class AppModule {}

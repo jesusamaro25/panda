@@ -1,4 +1,3 @@
-import { ProfilePage } from './../profile/profile';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
