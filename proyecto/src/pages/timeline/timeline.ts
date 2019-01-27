@@ -23,6 +23,8 @@ export class TimelinePage {
   postDetails: any[];
   //-------------------PRUEBA VARIABLE
   toastOptions: ToastOptions; 
+
+  public user: any;
   
   constructor(public navCtrl: NavController, 
               public viewCtrl: ViewController,
@@ -33,6 +35,9 @@ export class TimelinePage {
               public modalCtrl: ModalController, 
               public alertCtrl: AlertController)
 {
+
+  const data= JSON.parse(localStorage.getItem('userData'));
+  this.user=data;
   
   this.form = formBuilder.group({
                             image: [''],
@@ -67,7 +72,7 @@ export class TimelinePage {
 
   verPerfil(){
 
-    this.navCtrl.push(MenuprofilePage); 
+    this.navCtrl.setRoot(MenuprofilePage); 
     
   }
 

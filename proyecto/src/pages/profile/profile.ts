@@ -4,6 +4,7 @@ import {IonicPage, NavController, ViewController, ToastController, LoadingContro
 import {FormBuilder, FormGroup} from "@angular/forms";
 import { ModalController} from 'ionic-angular';
 import { EditarProfilePage } from '../editar-profile/editar-profile';
+import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 
 import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm install --save @ionic-native/camera
 import { Dialogs } from '@ionic-native/dialogs'; //Para instalar usar comandos ionic cordova plugin add cordova-plugin-dialogs y luego npm install --save @ionic-native/dialogs. Luego se debe añadir el componente al App module
@@ -19,7 +20,9 @@ export class ProfilePage {
   //isReadyToSave: boolean;
   item: any; 
   form: FormGroup;
+  public user: any;
   profileDetails: any[];
+  postDetails: any;
   //followers = Followers;
   publicaciones: any[]=['Cabudare','Barquisimeto','Manzano'];
   //publicacionPage = PublicacionPage;
@@ -35,7 +38,7 @@ export class ProfilePage {
     user_email: 'jesusamaro1995@gmail.com',
     user_password: 'password',
     user_state: 'Lara',
-    profile_image: 'asset/img/src/jesusamaro.png',  
+    profile_image: '../../assets/img/jesusamaro.png',  
     full_name: 'Jesús Amaro',
     about: 'Estudiante de Ing. Informática IX Semestre, aspirante a la Promo 59'
   };
@@ -43,9 +46,13 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera,
               
               public toastCtrl: ToastController, public loadingCtrl: LoadingController,public modalCtrl: ModalController, private dialogs: Dialogs
-              ,public appCtrl: App)
+              ,public appCtrl: App,
+              public authService: AuthServiceProvider)
               
               {
+    
+                const data= JSON.parse(localStorage.getItem('userData'));
+                this.user=data;
 
     this.form = formBuilder.group({
       image: [''], user_name: [''], user_password: [''], user_email: [''], user_state: [''],
@@ -69,6 +76,15 @@ export class ProfilePage {
         post: "No tuve clases, me voy de una pero tengo que echar gasolina primero. Quien no tenga problemas en acompañarme puede venirse. Llego hasta la Catedral"
       }
     ];
+
+
+
+    this.authService.getDataByOneParam("postByUser","user_id",this.user._id.$oid).then((data) =>{
+
+      this.postDetails=data;
+      console.log(this.postDetails);
+
+    })
 
   }
 
@@ -125,6 +141,7 @@ export class ProfilePage {
  irSolicitudes(){
   this.appCtrl.getRootNav().push(SolicitudesPage);
  }
+
  EditarPerfil() {
   this.navCtrl.push(EditarProfilePage);
 }

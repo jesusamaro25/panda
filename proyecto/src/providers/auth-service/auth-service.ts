@@ -16,7 +16,7 @@ export class AuthServiceProvider {
     console.log('Hello AuthServiceProvider Provider');
   }
 
-  postRegistro(credentials,type: String){
+  postData(credentials,type: String){
 
     return new Promise((resolve,reject)=>{
 
@@ -35,5 +35,69 @@ export class AuthServiceProvider {
     });
 
   }
+
+  putData(credentials,type,id){
+    
+    return new Promise((resolve,reject)=>{
+
+      let url=type+id;
+
+      let headers=new Headers({'content-type': 'application/json'});
+
+      this.http.put(apiurl+url,JSON.stringify(credentials),{headers: headers}).subscribe(res=>{
+
+        resolve(res.json())
+
+      },(err)=>{
+
+        reject(err)
+
+      });
+
+    });
+
+  }
+
+
+  getDataByID(type: String,id: string){
+
+    return new Promise((resolve,reject)=>{
+
+      let headers=new Headers({'content-type': 'application/json'});
+
+      this.http.get(apiurl+type+id,{headers: headers}).subscribe(res=>{
+
+        resolve(res.json())
+
+      },(err)=>{
+
+        reject(err)
+
+      });
+
+    });
+
+  }
+
+  getDataByOneParam(type: String,key,value){
+
+    return new Promise((resolve,reject)=>{
+
+      let headers=new Headers({'content-type': 'application/json'});
+
+      this.http.get(apiurl+type+"?"+key+"="+value,{headers: headers}).subscribe(res=>{
+
+        resolve(res.json())
+
+      },(err)=>{
+
+        reject(err)
+
+      });
+
+    });
+    
+  }
+
 
 }

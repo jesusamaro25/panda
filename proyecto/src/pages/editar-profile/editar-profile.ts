@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm install --save @ionic-native/camera
+import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
+import { MenuprofilePage } from '../menuprofile/menuprofile';
 /**
  * Generated class for the EditarProfilePage page.
  *
@@ -17,20 +19,49 @@ import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm
 export class EditarProfilePage {
   @ViewChild('fileInput') fileInput;
   form: FormGroup;
-  constructor(public navCtrl: NavController, public navParams: NavParams, formBuilder: FormBuilder, public camera: Camera,) {
+  public user: any;
+  userData={"name":"","lastname":"","bio":""}
+  resposeData: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+     formBuilder: FormBuilder, public camera: Camera,public authService: AuthServiceProvider) {
+    
+    const data= JSON.parse(localStorage.getItem('userData'));
+    this.user=data;
+
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditarProfilePage');
+  }
+
+  update(){
+
+    
+    this.authService.putData(this.userData,"users/",this.user._id.$oid).then((result)=>{
+
+      this.resposeData=result;
+      console.log(this.resposeData);
+      localStorage.setItem('userData',JSON.stringify(this.resposeData))
+      this.navCtrl.setRoot(MenuprofilePage);
+
+    },(err)=>{
+
+
+    });
+
   }
   
   guardarCambios(){
     swal({text: "¿Seguro que deseas guardar los cambios?", buttons: ['Cancel', 'Ok'] })
      .then((solicitar) => {
   if (solicitar) {
+
+    this.update();
     swal("Los cambios han sido guardados de manera exitosa", {
       icon: "success",
     });
+
   } 
   });
   }

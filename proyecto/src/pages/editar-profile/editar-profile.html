@@ -22,15 +22,26 @@
               </div>   
             </ion-col>
     <ion-list>
+
         <ion-item class="regi">
-                <ion-label color="light" stacked>Nombre</ion-label> <ion-input type="text" stacked="Nombre" placeholder="Jesús" ></ion-input>
+
+                <ion-label color="light" stacked>Nombre</ion-label> 
+                <ion-input type="text" stacked="Nombre" placeholder="{{user.name}}" [(ngModel)]="userData.name" ></ion-input>
+
         </ion-item>      
 
         <ion-item class="regi">
-                <ion-label color="light" stacked>Apellido</ion-label>   <ion-input placeholder="Amaro" type="text" name="Apellido"></ion-input>
+
+                <ion-label color="light" stacked>Apellido</ion-label>   
+                <ion-input placeholder="{{user.lastname}}" type="text" name="Apellido" [(ngModel)]="userData.lastname"></ion-input>
+
         </ion-item>   
+
         <ion-item class="regi">
-                <ion-label color="light" stacked>Biografía</ion-label>    <ion-textarea placeholder="Estudiante de Ing. Informática IX Semestre, aspirante a la Promo 59." style="height: 20vh;"></ion-textarea>
+
+                <ion-label color="light" stacked>Biografía</ion-label>  
+                <ion-textarea placeholder="{{user.bio}}" style="height: 20vh;" [(ngModel)]="userData.bio"></ion-textarea>
+
         </ion-item>   
 
     </ion-list>

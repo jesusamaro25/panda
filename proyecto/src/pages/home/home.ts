@@ -2,16 +2,19 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { RegistroPage } from '../registro/registro';
 import { TimelinePage } from '../timeline/timeline';
+import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-  email:string;
-  contrasena:string;
+  userData={"username":"","password":""}
+  resposeData: any;
+  public user: any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,public authService: AuthServiceProvider) {
 
   }
 
@@ -19,7 +22,21 @@ export class HomePage {
 
   login(){
 
-    this.navCtrl.setRoot(TimelinePage)
+    this.authService.postData(this.userData,"login").then((result)=>{
+
+      this.resposeData=result;
+      console.log(this.resposeData);
+      localStorage.setItem('userData',JSON.stringify(this.resposeData))
+      this.user=JSON.parse(localStorage.getItem('userData'));
+      this.navCtrl.push(TimelinePage);
+
+
+
+    },(err)=>{
+
+      swal("¡Error!", "Introdujiste mal tu usuario o contraseña", "error");
+
+    });
 
   }
 

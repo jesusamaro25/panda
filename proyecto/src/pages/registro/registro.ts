@@ -17,7 +17,7 @@ import { IonicPage, NavController} from 'ionic-angular';
 })
 export class RegistroPage {
 
-  userData={"username":"Seikuro3","password":"","name":"","lastname":"","bio":""}
+  userData={"username":"","password":"","name":"","lastname":"","bio":"","photo":""}
   resposeData: any;
 
   constructor(public navCtrl: NavController,public authService: AuthServiceProvider) {
@@ -31,7 +31,7 @@ export class RegistroPage {
   registro(){
 
     
-    this.authService.postRegistro(this.userData,"users").then((result)=>{
+    this.authService.postData(this.userData,"users").then((result)=>{
 
       this.resposeData=result;
       console.log(this.resposeData);
