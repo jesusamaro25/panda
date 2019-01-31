@@ -63,14 +63,12 @@ profile-page {
               background-size: cover;
               background-position: center;
               border: 5px solid map_get($colors,logo_border);
-              background-image:  url("../../assets/img/jesusamaro.png");
             }
             .profile-imagecard-placeholder {
               display: inline-block;
               background-size: cover;
               background-repeat: no-repeat;
               background-position: center;
-              background-image:  url("../../assets/img/jesusamaro.png");
               width: 60px;
               height: 60px;
               border-radius: 90%;

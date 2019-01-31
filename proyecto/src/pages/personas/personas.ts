@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MenuUserPage } from '../menu-user/menu-user';
+import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 
 /**
  * Generated class for the PersonasPage page.
@@ -17,57 +18,28 @@ import { MenuUserPage } from '../menu-user/menu-user';
 export class PersonasPage {
 
   mensajes: any[];
+  public user: any;
+  personDetails: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-    this.mensajes = [
-      {
-        nombre: "Jesús Amaro",
-        profilePic: "assets/imgmychats/amaro.jpg",
-        lastMessage: "Saliendo amigo.",
-        username: "@Jesusamaro"
-      },
-      {
-        nombre: "Isaac Rodríguez",
-        profilePic: "assets/imgmychats/isaac.jpg",
-        lastMessage: "vale, para la próxima :(",
-        username: "@AnotherIsaac"
-      },
-      {
-        nombre: "Donai Torin",
-        profilePic: "assets/imgmychats/donai.jpg",
-        lastMessage: "ah ok, ¿me das tu número?.",
-        username: "@Donaitorin"
-      },
-      {
-        nombre: "Junior Camacho",
-        profilePic: "assets/imgmychats/junior.jpg",
-        lastMessage: "Ya no me iré contigo, gracias",
-        username: "@Darons"
-      },
-      {
-        nombre: "Yessika Arriche",
-        profilePic: "assets/imgmychats/yessika.jpg",
-        lastMessage: "Hola, ¿En donde te espero?",
-        username: "@YessikaArrieche"
-      },
-      {
-        nombre: "Nervy Gomez",
-        profilePic: "assets/imgmychats/nervy.jpg",
-        lastMessage: "Te estamos esperando",
-        username: "@NervyG"
-      },
-      {
-        nombre: "Argenis gomez",
-        profilePic: "assets/imgmychats/argenis.jpg",
-        lastMessage:"¿Llegaste bien a casa?",
-        username: "@ArgenisGomez"
-      }];
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public authService: AuthServiceProvider) {
+
+    const data= JSON.parse(localStorage.getItem('userData'));
+    this.user=data;
+
+    this.authService.getDataByOneParam("searchalluser","username",this.user.username).then((data) =>{
+
+      this.personDetails=data;
+      console.log(this.personDetails);
+
+    })
 
   }
 
-  visitarPerfil(){
-    this.navCtrl.push(MenuUserPage);
+  visitarPerfil(id){
+    this.navCtrl.push(MenuUserPage,{item:id});
   }
 
   ionViewDidLoad() {

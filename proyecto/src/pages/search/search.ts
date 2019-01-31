@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the SearchPage tabs.
@@ -17,8 +17,12 @@ export class SearchPage {
 
   personasRoot = 'PersonasPage'
   aventonesRoot = 'AventonesPage'
+  value:any;
 
+  constructor(public navCtrl: NavController,public navParams: NavParams) {
 
-  constructor(public navCtrl: NavController) {}
+    this.value = navParams.get('item');
+
+  }
 
 }

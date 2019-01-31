@@ -32,18 +32,18 @@
             
             <ion-col col-6> <!-- Columna para la foto de perfil -->
               <div class="profile-image-wrapper">
-              <div class="profile-image-placeholder" *ngIf="!this.form.controls.image.value">
+              <div class="profile-image-placeholder" *ngIf="!this.form.controls.image.value" [ngStyle]="{'background-image': 'url(' + profileDetails.photo + ')'}">
                 
               </div>
-              <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()"
+              <div class="profile-image" 
                *ngIf="this.form.controls.image.value"></div>
               </div>
             </ion-col>
             
             <ion-col col-6> <!-- Columna para la Bio -->
               <div class="profile_data">
-                <h3 class="full_name">{{profileDetails[0].full_name}}</h3>
-                <p class="userDetails">{{profileDetails[0].about}}</p>
+                <h3 class="full_name">{{profileDetails.name}} {{profileDetails.lastname}}</h3>
+                <p class="userDetails">{{profileDetails.bio}}</p>
                 </div>
              </ion-col>
            
@@ -71,28 +71,28 @@
         </ion-grid>
       </div> <!--Fin Div de información de usuario-->
 
-      <ion-card *ngFor="let pbl of profileDetails index as i"> <!--Inicio publicaciones-->
+      <ion-card *ngFor="let item of postDetails"> <!--Inicio publicaciones-->
         <ion-grid>
           
           <ion-row> <!--Inicio fila del card para la foto de perfi y el contenido del post-->
             <ion-col col-4>
               <div class="profile-imagecard-wrapper"> <!--Inicio Div que contiene los div asociados a la imagen de perfil para efectos del SCSS-->
-                <div class="profile-imagecard-placeholder" *ngIf="!this.form.controls.image.value"></div>
-                <div class="profile-imagecard" [style.backgroundImage]="getProfileImageStyle()"
+                <div class="profile-imagecard-placeholder" *ngIf="!this.form.controls.image.value"  [ngStyle]="{'background-image': 'url(' + item.user.photo + ')'}"></div>
+                <div class="profile-imagecard" [ngStyle]="{'background-image': 'url(' + item.user.photo + ')'}"
                        *ngIf="this.form.controls.image.value"></div>
               </div> <!--Fin Div que contiene los div asociados a la imagen de perfil para efectos del SCSS-->
             </ion-col>
             <ion-col col-8>
               <ion-card-content> <!--Inicio card-content. Indicamos ion-card-contenr para que el contenido se ajuste a la card-->
-                <h2>{{profileDetails[i].full_name}}</h2>
-                <P class="ion-card-content">{{profileDetails[i].post}}</P>
+                <h2>{{item.user.name}} {{item.user.lastname}}</h2>
+                <P class="ion-card-content">{{item.text}}</P>
               </ion-card-content> <!--Fin  card-content.-->
             </ion-col>
           </ion-row> <!--Inicio fila del card para la foto de perfi y el contenido del post-->
           
           <ion-row> <!--Inicio fila del card para la foto de perfi y el contenido del post-->
               <ion-col col-4>
-                <p style="font-size: 12px; text-align: center" >12/11/2018 </p>
+                <p style="font-size: 12px; text-align: center" >{{item.date | date:'yyyy-MM-dd'}} </p>
                 <p  style="font-size: 12px; text-align: center">2:00 PM</p>
               </ion-col>
               <ion-col col-8>
@@ -105,7 +105,8 @@
                     </button> <!--aqui agrego metodo tambien-->
                   </ion-col>
                   <ion-col col-8 >
-                    <p class="ion-card-content" >6 solicitudes de aventón</p> 
+                    <p class="ion-card-content" >{{item.number}} puestos disponibles</p> 
+                    <p class="ion-card-content" >N Solicitudes de aventon</p> 
                   </ion-col>
                 </ion-row>
               </ion-col>

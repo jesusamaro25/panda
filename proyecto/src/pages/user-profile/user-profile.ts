@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, ViewController, LoadingController} from 'ionic-angular';
+import {IonicPage, NavController, ViewController, LoadingController, NavParams} from 'ionic-angular';
 import {FormBuilder, FormGroup} from "@angular/forms";
 
 //------------PARA USAR MODAL
@@ -8,6 +8,7 @@ import { ModalController} from 'ionic-angular';
 import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm install --save @ionic-native/camera
 import { Dialogs } from '@ionic-native/dialogs'; //Para instalar usar comandos ionic cordova plugin add cordova-plugin-dialogs y luego npm install --save @ionic-native/dialogs. Luego se debe añadir el componente al App module
 import { GlobalProvider } from "../../providers/global/global";
+import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 
 @IonicPage()
 @Component({
@@ -19,7 +20,10 @@ export class UserProfilePage {
   //isReadyToSave: boolean;
   item: any; 
   form: FormGroup;
-  profileDetails: any[];
+  profileDetails: any;
+  value: any;
+  public user: any;
+  postDetails: any;
   //followers = Followers;
   
   //publicacionPage = PublicacionPage;
@@ -45,9 +49,16 @@ export class UserProfilePage {
 
               public modalCtrl: ModalController, private dialogs: Dialogs,
 
-              public global:GlobalProvider)
-              
-              {
+              public global:GlobalProvider,
+
+              public navParams: NavParams,
+
+              public authService: AuthServiceProvider){
+
+    this.value = navParams.get('item');
+    console.log(this.value);
+
+
               
 
     this.form = formBuilder.group({
@@ -72,6 +83,27 @@ export class UserProfilePage {
         post: "No tuve clases, me voy de una pero tengo que echar gasolina primero. Quien no tenga problemas en acompañarme puede venirse. Llego hasta la Catedral"
       }
     ];
+
+    this.authService.getDataByID("users/",this.value).then((data) =>{
+
+      this.profileDetails=data;
+      console.log(this.profileDetails.username);
+
+      this.authService.getDataByOneParam("postByUser","username",this.profileDetails.username).then((data) =>{
+
+        this.postDetails=data;
+        console.log(this.postDetails);
+  
+      })
+
+    })
+
+
+
+    const data= JSON.parse(localStorage.getItem('userData'));
+    this.user=data;
+
+
 
   }
 

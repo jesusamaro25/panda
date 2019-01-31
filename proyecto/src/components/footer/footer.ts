@@ -31,7 +31,7 @@ export class FooterComponent {
   }
 
   search() {
-    this.navCtlr.setRoot(SearchPage);
+    this.navCtlr.setRoot(SearchPage,{item:""});
   }
 
   aventones() {

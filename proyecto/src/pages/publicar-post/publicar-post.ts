@@ -19,7 +19,7 @@ import { AuthServiceProvider } from './../../providers/auth-service/auth-service
 export class PublicarPostPage {
 
   public user: any;
-  postData={"text":"","number":"","user_id":""}
+  postData={"text":"","number":"","user_id":"","date":''}
   user_id={"user_id":""}
   resposeData: any;
 
@@ -43,8 +43,6 @@ export class PublicarPostPage {
 
       this.resposeData=result;
       console.log(this.resposeData);
-      localStorage.setItem('userData',JSON.stringify(this.resposeData))
-      swal("¡Listo!", "Bienvenido a la familia Panda", "success");
       this.navCtrl.setRoot(TimelinePage);
 
     },(err)=>{
@@ -96,6 +94,7 @@ export class PublicarPostPage {
 
           this.postData.number=data;
           this.postData.user_id=this.user._id.$oid;
+          this.postData.date=JSON.stringify(new Date());
 
           this.guardarPost();
 

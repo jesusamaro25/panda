@@ -1,3 +1,4 @@
+import { MenuprofilePage } from './../menuprofile/menuprofile';
 import { SolicitudesPage } from './../solicitudes/solicitudes';
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, ViewController, ToastController, LoadingController, ToastOptions, App} from 'ionic-angular';
@@ -23,6 +24,7 @@ export class ProfilePage {
   public user: any;
   profileDetails: any[];
   postDetails: any;
+  resposeData: any;
   //followers = Followers;
   publicaciones: any[]=['Cabudare','Barquisimeto','Manzano'];
   //publicacionPage = PublicacionPage;
@@ -79,13 +81,33 @@ export class ProfilePage {
 
 
 
-    this.authService.getDataByOneParam("postByUser","user_id",this.user._id.$oid).then((data) =>{
+    this.authService.getDataByOneParam("postByUser","username",this.user.username).then((data) =>{
 
       this.postDetails=data;
       console.log(this.postDetails);
 
     })
 
+  }
+
+  getUser(id){
+
+    let datos: any;
+
+    this.authService.getDataByID("users/",id).then((data)=>{
+
+      datos=data;
+      console.log(datos);
+
+    })
+
+    console.log(datos);
+    return datos.data.name;
+
+  }
+
+  getnombre(){
+    return "Donai";
   }
 
   openFollowers() {
@@ -101,6 +123,23 @@ export class ProfilePage {
   .then(() => console.log('Dialog dismissed'))
   .catch(e => console.log('Error displaying dialog', e));    
  }
+
+ update(foto){
+
+    
+  this.authService.putData(foto,"users/",this.user._id.$oid).then((result)=>{
+
+    this.resposeData=result;
+    console.log(this.resposeData);
+    localStorage.setItem('userData',JSON.stringify(this.resposeData))
+    this.navCtrl.setRoot(MenuprofilePage);
+
+  },(err)=>{
+
+
+  });
+
+}
 
  
 
@@ -129,6 +168,9 @@ export class ProfilePage {
 
       let imageData = (readerEvent.target as any).result;
       this.form.patchValue({'image': imageData});
+      this.update({"photo":this.form.controls['image'].value})
+
+
     };
 
     reader.readAsDataURL(event.target.files[0]);

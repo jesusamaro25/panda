@@ -2,6 +2,7 @@ import { MenuUserPage } from './../menu-user/menu-user';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 /**
  * Generated class for the AventonesPage page.
  *
@@ -17,44 +18,43 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class AventonesPage {
 
   form: FormGroup;
-  postDetails: any[];
+  postDetails: any;
+  public user: any;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    formBuilder: FormBuilder) {
+    formBuilder: FormBuilder,
+    public authService: AuthServiceProvider) {
 
-    this.form = formBuilder.group({
-      image: [''],
-      user_name: [''],
-      user_password: [''], 
-      user_email: [''],
-      user_state: [''],}); //SIN ESTO NO SE VE NADA
+      const data= JSON.parse(localStorage.getItem('userData'));
+      this.user=data;
 
-    this.postDetails = [    
-      {
-        full_name: "Felipe Gonzalez",
-        about: "Estudiante de Ing. Informática IX Semestre, aspirante a la Promo 59.",
-        followers: 230,
-        pic: "../../assets/img/felipe.png", 
-        post: "Voy para mi casa por Santa Elena"
-      },
-      {
-        full_name: "Francisco Sánchez",
-        about: "Estudiante de Ing. Informática IX Semestre, aspirante a la Promo 59.",
-        followers: 0,
-        following: 170,
-        pic: "../../assets/img/francisco.png", 
-        post: "Bajo para cabudare" 
-      }
-    ];
+      this.authService.getDataByOneParam("searchallpost","username",this.user.username).then((data) =>{
+
+        this.postDetails=data;
+        console.log(this.postDetails);
+
+      })
+
+      this.form = formBuilder.group({
+        image: [''],
+        user_name: [''],
+        user_password: [''], 
+        user_email: [''],
+        user_state: [''],}); //SIN ESTO NO SE VE NADA
+
+
+
+
+
   }
 
   
 
 
       
-  visitarPerfil(){
-    this.navCtrl.push(MenuUserPage);
+  visitarPerfil(id){
+    this.navCtrl.push(MenuUserPage,{item:id});
   }
 
   getProfileImageStyle() {

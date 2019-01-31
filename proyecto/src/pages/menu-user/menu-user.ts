@@ -18,9 +18,12 @@ import {Component} from '@angular/core';
 export class MenuUserPage {
 
   rootPage = UserProfilePage;
+  value:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl: ModalController,private alertCtrl: AlertController) {
+
+      this.value = navParams;
     
   }
 

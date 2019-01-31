@@ -20,17 +20,17 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item-sliding class="cssForRoundSLidingItems" *ngFor="let msjs of mensajes index as i" #slidingItem>
-      <ion-item (click)="visitarPerfil()">
+    <ion-item-sliding class="cssForRoundSLidingItems" *ngFor="let item of personDetails" #slidingItem>
+      <ion-item (click)="visitarPerfil(item._id.$oid)">
       <!--   <ion-row> Inicio fila del card para la foto de perfi y el contenido del post
           <ion-col col-4> -->
         <ion-avatar item-start >
-          <img [src]="mensajes[i].profilePic">
+          <img [src]="item.photo">
         </ion-avatar>
 
         <h2>
-          {{mensajes[i].nombre}} 
-          <span style="color:darkgray">{{mensajes[i].username}}</span>
+          {{item.name}} {{item.lastname}} 
+          <span style="color:darkgray">{{item.username}}</span>
         </h2> 
 
       </ion-item>
