@@ -15,7 +15,7 @@ profile-page {
               background-repeat: no-repeat;
               background-size: cover;
               background-position: center;
-              border: 5px solid map_get($colors,logo_border);
+              //border: 5px solid map_get($colors,logo_border);
             }
             .profile-imagecard {
               width: 30px;
@@ -62,7 +62,7 @@ profile-page {
               background-repeat: no-repeat;
               background-size: cover;
               background-position: center;
-              border: 5px solid map_get($colors,logo_border);
+             // border: 5px solid map_get($colors,logo_border);
             }
             .profile-imagecard-placeholder {
               display: inline-block;
@@ -121,7 +121,7 @@ profile-page {
             border: none;
           }
           .label_here{
-           color: black !important;
+           //@at-rootcolor: black !important;
             font-size: 16px !important;
           }
           ion-input{

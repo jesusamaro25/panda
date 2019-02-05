@@ -30,6 +30,7 @@ export class ProfilePage {
   //publicacionPage = PublicacionPage;
   //-------------------PRUEBA VARIABLE
   toastOptions: ToastOptions; 
+  reader:any;
   
   
   account: {

@@ -17,25 +17,23 @@ import { IonicPage, NavController} from 'ionic-angular';
 })
 export class RegistroPage {
 
-  userData={"username":"","password":"","name":"","lastname":"","bio":"","photo":""}
-  resposeData: any;
+  userData={"username":"","password":"","name":"","lastname":"","bio":"","photo":"../../assets/img/profile.png"}
+  resposeData={"username":"","password":"","name":"","lastname":"","bio":""};
+  newuser: any;
 
   constructor(public navCtrl: NavController,public authService: AuthServiceProvider) {
     
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegistroPage');
+    //console.log('ionViewDidLoad RegistroPage');
   }
 
   registro(){
 
-    
     this.authService.postData(this.userData,"users").then((result)=>{
 
-      this.resposeData=result;
-      console.log(this.resposeData);
-      localStorage.setItem('userData',JSON.stringify(this.resposeData))
+      localStorage.setItem('userData',JSON.stringify(this.resposeData));
       swal("¡Listo!", "Bienvenido a la familia Panda", "success");
       this.navCtrl.push(TimelinePage);
 
@@ -43,6 +41,7 @@ export class RegistroPage {
 
 
     });
+  
 
   }
 }

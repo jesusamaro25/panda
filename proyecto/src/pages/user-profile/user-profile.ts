@@ -24,24 +24,13 @@ export class UserProfilePage {
   value: any;
   public user: any;
   postDetails: any;
+  seguidor:any;
   //followers = Followers;
   
   //publicacionPage = PublicacionPage;
   //-------------------PRUEBA VARIABLE
   
   
-  account: {
-    user_name: string, user_email: string, user_password: string, user_state: string, profile_image: string,
-    full_name: string, about: string
-  } = {
-    user_name: 'jesusamaro_', 
-    user_email: 'jesusamaro1995@gmail.com',
-    user_password: 'password',
-    user_state: 'Lara',
-    profile_image: 'asset/img/src/felipe.png',  
-    full_name: 'José Felipe',
-    about: 'Graduando de la promo 58 Ing Informática.'
-  };
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera,
               
@@ -69,29 +58,29 @@ export class UserProfilePage {
     //Aqui se guardan los objetos json dentro del arreglo profile Details
     this.profileDetails = [
       {
-        full_name: "José Felipe",
-        about: "Graduando de la promo 58 Ing Informática.",
-        followers: 230,
-        following: 170,
-        post: "Saliendo del DCyT. Voy hasta el sambil."
-      },
-      {
-        full_name: "José Felipe", 
-        about: "Graduando de la promo 58 Ing Informática.",
-        followers: 0,
-        following: 170,
-        post: "No tuve clases, me voy de una pero tengo que echar gasolina primero. Quien no tenga problemas en acompañarme puede venirse. Llego hasta la Catedral"
+        full_name: "",
+        about: "",
+        followers: "",
+        following: "",
+        post: ""
       }
     ];
+
+   
 
     this.authService.getDataByID("users/",this.value).then((data) =>{
 
       this.profileDetails=data;
+      console.log('AJA FIJATE AQUI');
+      console.log('----------  DATA ------------');
+      console.log(data); 
+
       console.log(this.profileDetails.username);
 
       this.authService.getDataByOneParam("postByUser","username",this.profileDetails.username).then((data) =>{
 
         this.postDetails=data;
+        
         console.log(this.postDetails);
   
       })

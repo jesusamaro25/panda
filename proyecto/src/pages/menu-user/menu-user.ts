@@ -1,6 +1,8 @@
 import { UserProfilePage } from './../user-profile/user-profile';
 import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import {Component} from '@angular/core';
+import { ValueTransformer } from '@angular/compiler/src/util';
+import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 
 
 /**
@@ -18,14 +20,43 @@ import {Component} from '@angular/core';
 export class MenuUserPage {
 
   rootPage = UserProfilePage;
+  id_user:any;
   value:any;
-
+  id_logged_user:any;
+  value2:any;
+  seguidor:any;
+  follow:any;
+  followdata:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public modalCtrl: ModalController,private alertCtrl: AlertController) {
-
+              public modalCtrl: ModalController,private alertCtrl: AlertController,
+              public authService: AuthServiceProvider) { //INICIO CONSTRUCTOR
+      //--------------------------------Parametros del NavBar-----------------
       this.value = navParams;
+      this.id_logged_user = this.value.data.item;
+      
+      //-------------------------------------------------------------------------
+      //--------------DATO DEL USUARIO LOGGEADO------------------
+      const data= JSON.parse(localStorage.getItem('userData'));
+      this.id_user=data._id.$oid; 
+      console.log(this.id_user);
+      //-----------------------------------------------------------
+      this.followdata={"follower_id":this.id_user , "following_id": this.id_logged_user }
+       
+   
+
+      //---------------------------------------------------------------------------------------
     
   }
+
+  //-------------------------FIN CONSTRUCTOR ---------------------------------------------
+
+seguir(){
+console.log(this.followdata);
+this.authService.postData(this.followdata,'follows').then((result)=>{
+swal("¡Listo!", "Haz seguido a este usuario", "success");
+})
+}
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuUserPage');

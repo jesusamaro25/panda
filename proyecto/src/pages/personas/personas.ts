@@ -39,6 +39,7 @@ export class PersonasPage {
   }
 
   visitarPerfil(id){
+    console.log('el id de este pana es.........'+id);
     this.navCtrl.push(MenuUserPage,{item:id});
   }
 

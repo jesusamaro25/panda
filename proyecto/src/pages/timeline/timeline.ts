@@ -8,6 +8,7 @@ import { PublicarPostPage } from '../publicar-post/publicar-post';  //Para insta
 import swal from 'sweetalert';
 import { MenuUserPage } from '../menu-user/menu-user';
 import { AlertController } from 'ionic-angular';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @IonicPage()
 @Component({
@@ -20,53 +21,68 @@ export class TimelinePage {
   item: any; 
   form: FormGroup;
  // profileDetails: any[];
-  postDetails: any[];
+  postDetails: any;
+  requestData:any;
   //-------------------PRUEBA VARIABLE
   toastOptions: ToastOptions; 
 
   public user: any;
-  
+  logged_user_id:any;
   constructor(public navCtrl: NavController, 
               public viewCtrl: ViewController,
-              formBuilder: FormBuilder, 
+              
               public camera: Camera,            
               public toastCtrl: ToastController,
               public loadingCtrl: LoadingController,
               public modalCtrl: ModalController, 
-              public alertCtrl: AlertController)
-{
+              public alertCtrl: AlertController,
+              public authService: AuthServiceProvider)
+{  //-------------------------------------------INICIO COSNTRUCTOR-----------------------------------------------------
 
   const data= JSON.parse(localStorage.getItem('userData'));
   this.user=data;
+ 
+
   
-  this.form = formBuilder.group({
-                            image: [''],
-      											user_name: [''],
-      											user_password: [''], 
-      											user_email: [''],
-      											user_state: [''],}); //SIN ESTO NO SE VE NADA
-  this.postDetails = [    
-      				{
-        				full_name: "Felipe Gonzalez",
-        				about: "Estudiante de Ing. Informática IX Semestre, aspirante a la Promo 59.",
-        				followers: 230,
-        				pic: "../../assets/img/felipe.png", 
-        				post: "Voy para mi casa por Santa Elena"
-      				},
-				      {
-				        full_name: "Francisco Sánchez",
-				        about: "Estudiante de Ing. Informática IX Semestre, aspirante a la Promo 59.",
-				        followers: 0,
-				        following: 170,
-				        pic: "../../assets/img/francisco.png", 
-				        post: "Bajo para cabudare" 
-				      }
-    												];
+  this.authService.getDataByOneParam("timeline","username",this.user.username).then((data) =>{
+
+    this.postDetails = data;
+    console.log('POM RAK KUN'); 
+    console.log(this.postDetails);
+    												
+    
+  });
+  
+ 
+ 
     
     
 
     			
 
+}  //-------------------------------------------FIN COSNTRUCTOR-----------------------------------------------------
+
+enviarSolicitudAventon(id_post, id_autor)
+{
+  
+this.requestData = {"solicitante_id": this.logged_user_id,"solicitado_id": id_autor,"post_id": id_post};
+ swal({text: "¿Desea solicitar aventón?", buttons: ['Cancel', 'Ok'] })
+   .then((solicitar) => {
+     if (solicitar) {
+       this.authService.postData(this.requestData,"requests").then((result)=>{
+
+         swal("¡Listo!", "Bienvenido a la familia Panda", "success");
+         this.navCtrl.push(TimelinePage);
+     
+       },(err)=>{
+     
+     
+       });
+       swal("Tu solicitud ha sido enviada", {
+         icon: "success",
+       });
+     } 
+ });
 }
 
 
@@ -97,18 +113,7 @@ export class TimelinePage {
 
 
 
- enviarSolicitudAventon()
- {
-  swal({text: "¿Desea solicitar aventón?", buttons: ['Cancel', 'Ok'] })
-    .then((solicitar) => {
-      if (solicitar) {
-        swal("Tu solicitud ha sido enviada", {
-          icon: "success",
-        });
-      } 
-  });
- }
-
+ 
 
 
 
