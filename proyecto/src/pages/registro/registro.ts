@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { TimelinePage } from './../timeline/timeline';
 import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 import { Component } from '@angular/core';
@@ -35,7 +36,8 @@ export class RegistroPage {
 
       localStorage.setItem('userData',JSON.stringify(this.resposeData));
       swal("¡Listo!", "Bienvenido a la familia Panda", "success");
-      this.navCtrl.push(TimelinePage);
+      localStorage.setItem('userData',JSON.stringify(this.resposeData))
+      this.navCtrl.setRoot(HomePage);
 
     },(err)=>{
 

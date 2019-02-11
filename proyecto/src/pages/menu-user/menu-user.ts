@@ -1,7 +1,6 @@
 import { UserProfilePage } from './../user-profile/user-profile';
 import { IonicPage, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
 import {Component} from '@angular/core';
-import { ValueTransformer } from '@angular/compiler/src/util';
 import { AuthServiceProvider } from './../../providers/auth-service/auth-service';
 
 
@@ -22,25 +21,28 @@ export class MenuUserPage {
   rootPage = UserProfilePage;
   id_user:any;
   value:any;
-  id_logged_user:any;
+  id_profile_user:any;
   value2:any;
   seguidor:any;
   follow:any;
+  count: number;
   followdata:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public modalCtrl: ModalController,private alertCtrl: AlertController,
               public authService: AuthServiceProvider) { //INICIO CONSTRUCTOR
       //--------------------------------Parametros del NavBar-----------------
       this.value = navParams;
-      this.id_logged_user = this.value.data.item;
-      
+      this.id_profile_user = this.value.data.item;
       //-------------------------------------------------------------------------
       //--------------DATO DEL USUARIO LOGGEADO------------------
       const data= JSON.parse(localStorage.getItem('userData'));
       this.id_user=data._id.$oid; 
       console.log(this.id_user);
       //-----------------------------------------------------------
-      this.followdata={"follower_id":this.id_user , "following_id": this.id_logged_user }
+      this.followdata={"follower_id":this.id_user , "following_id": this.id_profile_user }
+
+      this.checkFollow();
        
    
 
@@ -50,12 +52,31 @@ export class MenuUserPage {
 
   //-------------------------FIN CONSTRUCTOR ---------------------------------------------
 
-seguir(){
-console.log(this.followdata);
-this.authService.postData(this.followdata,'follows').then((result)=>{
-swal("¡Listo!", "Haz seguido a este usuario", "success");
-})
-}
+  seguir(){
+
+    console.log(this.followdata);
+
+    this.authService.postData(this.followdata,'follows').then((result)=>{
+
+      swal("¡Listo!", "Haz seguido a este usuario", "success");
+      this.checkFollow();
+
+    })
+  }
+
+  checkFollow(){
+
+    this.authService.getDataByTwoParams("checkfollow","follower_id",this.id_user,"following_id",this.id_profile_user).then((data) =>{
+
+      this.follow = data;
+      console.log(this.follow);  
+      this.count=this.follow.length;
+      console.log(this.count);
+      console.log("el follow va antes");                      
+      
+    });
+
+  }
 
 
   ionViewDidLoad() {
@@ -68,14 +89,21 @@ swal("¡Listo!", "Haz seguido a este usuario", "success");
   }
 
   dejarDeSeguir(){
-    swal({text: "¿Seguro que deseas dejar de seguir a este usuario?", buttons: ['Cancel', 'Ok'] })
-     .then((solicitar) => {
+
+    swal({text: "¿Seguro que deseas dejar de seguir a este usuario?", buttons: ['Cancel', 'Ok'] }).then((solicitar) => {
+
         if (solicitar) {
-          swal("Haz dejado de seguir a este usuario", {
-            icon: "success",
-        });
-      } 
-    });
+
+          this.authService.deleteDataByID('follows/',this.follow[0]._id.$oid).then((result)=>{
+
+            swal("¡Listo!", "Haz dejado de seguir a este usuario", "success");
+            this.checkFollow();
+      
+          })
+
+        } 
+
+      });
   }
 
   alerta() {

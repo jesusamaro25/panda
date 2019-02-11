@@ -17,13 +17,13 @@
   <ion-content style="background-color: transparent !important;" no-border>
     <ion-list>
 
-      <button ion-item style="background: rgba(109, 127, 127, 0.67); color: white" (click)="activarNotificaciones()">
+      <button ion-item *ngIf="count>0" style="background: rgba(109, 127, 127, 0.67); color: white" (click)="dejarDeSeguir()">
 
-        <ion-icon style="color:#77a8a8" name="notifications"></ion-icon>
-        {{value}}
+      <ion-icon style="color:#77a8a8" name="sad"></ion-icon>
+        Dejar De Seguir
       </button>
 
-      <button ion-item  style="background: rgba(109, 127, 127, 0.67); color: white" (click)="seguir()"> 
+      <button ion-item *ngIf="count==0"   style="background: rgba(109, 127, 127, 0.67); color: white" (click)="seguir()"> 
 
         <ion-icon name="sad" style="color:#77a8a8"></ion-icon>
         Seguir

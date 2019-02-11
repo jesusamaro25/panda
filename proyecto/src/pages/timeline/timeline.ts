@@ -1,7 +1,7 @@
 import { MenuprofilePage } from './../menuprofile/menuprofile';
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, ViewController, ToastController, LoadingController, ToastOptions} from 'ionic-angular';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormGroup} from "@angular/forms";
 import { ModalController} from 'ionic-angular';
 import {Camera} from '@ionic-native/camera'; //Para instalar usar el comando npm install --save @ionic-native/camera
 import { PublicarPostPage } from '../publicar-post/publicar-post';  //Para instalar usar comandos ionic cordova plugin add cordova-plugin-dialogs y luego npm install --save @ionic-native/dialogs. Luego se debe añadir el componente al App module
@@ -65,7 +65,7 @@ export class TimelinePage {
 enviarSolicitudAventon(id_post, id_autor)
 {
   
-this.requestData = {"solicitante_id": this.logged_user_id,"solicitado_id": id_autor,"post_id": id_post};
+this.requestData = {"solicitante_id": this.user._id.$oid,"solicitado_id": id_autor,"post_id": id_post};
  swal({text: "¿Desea solicitar aventón?", buttons: ['Cancel', 'Ok'] })
    .then((solicitar) => {
      if (solicitar) {
@@ -98,8 +98,8 @@ this.requestData = {"solicitante_id": this.logged_user_id,"solicitado_id": id_au
     
   }
 
-  visitarPerfil(){
-    this.navCtrl.push(MenuUserPage);
+  visitarPerfil(id){
+    this.navCtrl.push(MenuUserPage,{item:id});
   }
 
 

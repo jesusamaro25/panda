@@ -99,5 +99,46 @@ export class AuthServiceProvider {
     
   }
 
+  getDataByTwoParams(type: String,key,value,key2,value2){
+
+    return new Promise((resolve,reject)=>{
+
+      let headers=new Headers({'content-type': 'application/json'});
+
+      this.http.get(apiurl+type+"?"+key+"="+value+"&"+key2+"="+value2,{headers: headers}).subscribe(res=>{
+
+        resolve(res.json())
+
+      },(err)=>{
+
+        reject(err)
+
+      });
+
+    });
+    
+  }
+
+
+  deleteDataByID(type: String,id: string){
+
+    return new Promise((resolve,reject)=>{
+
+      let headers=new Headers({'content-type': 'application/json'});
+
+      this.http.delete(apiurl+type+id,{headers: headers}).subscribe(res=>{
+
+        resolve(res.json())
+
+      },(err)=>{
+
+        reject(err)
+
+      });
+
+    });
+
+  }
+
 
 }
