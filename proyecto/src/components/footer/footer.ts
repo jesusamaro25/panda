@@ -38,4 +38,16 @@ export class FooterComponent {
     this.navCtlr.setRoot(AventonesPage);
   }
 
+  alerta() {
+    
+      swal({text: "¿Deseas activar las notificaciones?", buttons: ['Cancel', 'Ok'] })
+        .then((solicitar) => {
+          if (solicitar) {
+            swal("Las notificaciones han sido activadas", {
+              icon: "success",
+            });
+          } 
+      });
+     }
+
 }

@@ -71,7 +71,7 @@ this.requestData = {"solicitante_id": this.user._id.$oid,"solicitado_id": id_aut
      if (solicitar) {
        this.authService.postData(this.requestData,"requests").then((result)=>{
 
-         swal("¡Listo!", "Bienvenido a la familia Panda", "success");
+         swal("¡Listo!", "tu solicitud ha sido enviada", "success");
          this.navCtrl.push(TimelinePage);
      
        },(err)=>{

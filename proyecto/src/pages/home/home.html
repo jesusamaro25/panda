@@ -14,7 +14,7 @@
 
   <ion-list>
     <ion-item class="ini">
-      <ion-input placeholder="Email" [(ngModel)]="userData.username" style="color: white"></ion-input>
+      <ion-input placeholder="Username" [(ngModel)]="userData.username" style="color: white"></ion-input>
     </ion-item>
     <ion-item class="ini">
         <ion-input placeholder="Contaseña" type="password" [(ngModel)]="userData.password" style="color: white"></ion-input>
@@ -23,7 +23,7 @@
 
   <button ion-button round (click)="login()" class="button-login">Iniciar Sesión</button>
   <ion-label id="regl1">¿No te has registrado?</ion-label>
-  <ion-label id="regl2" (click)="goRegister()">Registrate aqui</ion-label>
+  <ion-label id="regl2" (click)="goRegister()">Registrate aquí</ion-label>
   <!--
   <button ion-button round color="light" (click)="goRegister()">Registrarme</button>
   -->

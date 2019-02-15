@@ -8,9 +8,6 @@
     <ion-toolbar>
       
         <ion-searchbar
-        [(ngModel)]="myInput"
-        [showCancelButton]="shouldShowCancel"
-        (ionInput)="onInput($event)"
         (ionCancel)="onCancel($event)">
   
       </ion-searchbar>
@@ -52,7 +49,7 @@
               <ion-col col-8>
                 <ion-row>
                   <ion-col col-4 >
-                    <button ion-button icon-only clear (click)="irSolicitudes()">
+                    <button ion-button icon-only clear (click)="enviarSolicitudAventon()">
                       <div>
                         <ion-icon class="icon-content" name="ios-mail"></ion-icon>
                       </div> 

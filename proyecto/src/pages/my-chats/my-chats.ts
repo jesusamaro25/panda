@@ -30,19 +30,19 @@ ionViewDidLoad() {
       nombre: "Jesús Amaro",
       profilePic: "assets/imgmychats/amaro.jpg",
       lastMessage: "Saliendo amigo.",
-      username: "@Jesusamaro"
+      username: "@Jesusamaro25"
     },
     {
       nombre: "Isaac Rodríguez",
       profilePic: "assets/imgmychats/isaac.jpg",
       lastMessage: "vale, para la próxima :(",
-      username: "@AnotherIsaac"
+      username: "@isaacR"
     },
     {
       nombre: "Donai Torin",
       profilePic: "assets/imgmychats/donai.jpg",
       lastMessage: "ah ok, ¿me das tu número?.",
-      username: "@Donaitorin"
+      username: "@Seikuro"
     },
     {
       nombre: "Junior Camacho",
@@ -60,7 +60,7 @@ ionViewDidLoad() {
       nombre: "Nervy Gomez",
       profilePic: "assets/imgmychats/nervy.jpg",
       lastMessage: "Te estamos esperando",
-      username: "@NervyG"
+      username: "@elCharas"
     },
     {
       nombre: "Argenis gomez",

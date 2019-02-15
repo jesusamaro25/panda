@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+//import { ComponentsModule } from '../components/components.module'; //necesario para que funcione el decorador componente
 /**
  * Generated class for the RatingPage page.
  *

@@ -58,7 +58,7 @@ export class MenuUserPage {
 
     this.authService.postData(this.followdata,'follows').then((result)=>{
 
-      swal("¡Listo!", "Haz seguido a este usuario", "success");
+      swal("¡Listo!", "Has seguido a este usuario", "success");
       this.checkFollow();
 
     })
@@ -96,7 +96,7 @@ export class MenuUserPage {
 
           this.authService.deleteDataByID('follows/',this.follow[0]._id.$oid).then((result)=>{
 
-            swal("¡Listo!", "Haz dejado de seguir a este usuario", "success");
+            swal("¡Listo!", "Has dejado de seguir a este usuario", "success");
             this.checkFollow();
       
           })
@@ -112,7 +112,7 @@ export class MenuUserPage {
       inputs: [
         {
           name: 'denuncia',
-          placeholder: 'echa el cuento'
+          placeholder: 'explica acá lo sucedido'
         },
        
       ],

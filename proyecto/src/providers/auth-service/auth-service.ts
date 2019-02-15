@@ -7,7 +7,7 @@ import { Headers,Http } from '@angular/http'
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
-let apiurl='http://localhost:3000/'
+let apiurl='http://192.168.0.102:3000/'
 
 @Injectable()
 export class AuthServiceProvider {
